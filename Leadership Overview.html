@@ -1,0 +1,550 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Leadership Overview</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: what is happening (health) → where/why/who (attention) → pipeline → risk → collection → travel → team */
+:root{
+  --bg:#F3F5F7;--surface:#FFFFFF;--surface-2:#EBEFF3;--line:#D6DCE3;
+  --fg:#18202C;--muted:#5A6576;--accent:#1F5F8B;--accent-soft:#DCE8F2;--bar:#C3CDD8;
+  --watch:#6E5B00;--watch-bg:#F6EDB9;--act:#A9480B;--act-bg:#FBE3D1;
+  --good:#1D7448;--good-bg:#DCF0E4;--warn:#8F5B00;--warn-bg:#FAEDD2;--crit:#B42318;--crit-bg:#FBE1DE;
+  --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F141B;--surface:#161D27;--surface-2:#1C2531;--line:#2A3542;
+  --fg:#E5EAF0;--muted:#97A3B4;--accent:#6FA9D8;--accent-soft:#1D3347;--bar:#3A4757;
+  --watch:#E2C84F;--watch-bg:#322B0E;--act:#F2995A;--act-bg:#3A2314;
+  --good:#5DC38C;--good-bg:#16301F;--warn:#E2A94C;--warn-bg:#382A12;--crit:#F07A6E;--crit-bg:#3B1C1A;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F141B;--surface:#161D27;--surface-2:#1C2531;--line:#2A3542;
+  --fg:#E5EAF0;--muted:#97A3B4;--accent:#6FA9D8;--accent-soft:#1D3347;--bar:#3A4757;
+  --watch:#E2C84F;--watch-bg:#322B0E;--act:#F2995A;--act-bg:#3A2314;
+  --good:#5DC38C;--good-bg:#16301F;--warn:#E2A94C;--warn-bg:#382A12;--crit:#F07A6E;--crit-bg:#3B1C1A;color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:14px;line-height:1.45}
+.wrap{max-width:1240px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:18px}
+h1{font-size:22px;font-weight:700;margin:0;letter-spacing:-.01em}
+h2{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+header{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:flex-end;justify-content:space-between}
+.sub{color:var(--muted);font-size:13px;margin-top:2px}
+.controls{display:flex;flex-wrap:wrap;gap:10px}
+.controls label{display:grid;gap:3px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+select{font:inherit;font-size:14px;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:7px 10px;min-width:0}
+select:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.banner{font-size:12.5px;color:var(--warn);background:var(--warn-bg);border-radius:6px;padding:8px 12px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;min-width:0;display:grid;gap:12px;align-content:start}
+.phead{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline;justify-content:space-between}
+.phead .note{font-size:12px;color:var(--muted)}
+.scope{font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--surface-2);color:var(--muted);text-transform:none;letter-spacing:0}
+.pill{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.good{color:var(--good);background:var(--good-bg)}.warn{color:var(--warn);background:var(--warn-bg)}.crit{color:var(--crit);background:var(--crit-bg)}.neutral{color:var(--muted);background:var(--surface-2)}
+.watch{color:var(--watch);background:var(--watch-bg)}.act{color:var(--act);background:var(--act-bg)}.past{color:var(--surface);background:var(--crit)}
+.trend{font-size:12px;font-weight:600;white-space:nowrap}
+.trend.tg{color:var(--good)}.trend.tb{color:var(--crit)}.trend.tn{color:var(--muted);font-weight:500}
+.drill{cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.drill:hover{border-color:var(--accent)}
+.drill:focus-visible{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+
+.health{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.hb{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;gap:5px;min-width:0;align-content:start}
+.hb .lbl{font-size:12.5px;font-weight:600}
+.hb .st{font-size:18px;font-weight:700;line-height:1.2}
+.hb .st.good{background:none}.hb .st.warn{background:none}.hb .st.crit{background:none}
+.hb .v{font-size:12.5px;color:var(--muted)}
+.spark{width:100%;max-width:120px;height:26px;display:block}
+
+.att{display:grid;gap:0}
+.arow{display:grid;grid-template-columns:96px minmax(0,1.3fr) minmax(0,1fr) minmax(0,1.3fr) minmax(0,1fr);gap:12px;align-items:center;padding:9px 10px;border-top:1px solid var(--line);font-size:13px;border-radius:6px}
+.arow.head{border-top:0;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding-block:4px}
+.arow.drill{border:1px solid transparent;border-top-color:var(--line)}
+.arow.drill:hover{border-color:var(--accent)}
+.arow b{font-weight:600}
+.arow .m{color:var(--muted)}
+
+.pipes{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.pipe{display:grid;gap:8px;min-width:0}
+.pipe h3{font-size:12.5px;font-weight:600;margin:0}
+.stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.boxes3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.stage{border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;gap:3px;min-width:0;position:relative}
+.stage .n{font-family:var(--mono);font-size:24px;font-weight:500;line-height:1.1}
+.stage .l{font-size:12.5px;color:var(--muted)}
+.stage .cv{font-size:12px}
+.boxes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.box{border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;gap:4px;min-width:0}
+.box .top{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center;font-size:12px;color:var(--muted)}
+.box b{font-family:var(--mono);font-size:24px;font-weight:500;line-height:1.1}
+.box .sp{font-size:12px;color:var(--muted)}
+.two{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:12px}
+.hbar{display:flex;height:16px;border-radius:4px;overflow:hidden;gap:2px}
+.hbar i{display:block;height:100%}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.util{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.util b{font-family:var(--mono);font-size:34px;font-weight:500;line-height:1}
+.empty{font-size:12.5px;color:var(--muted)}
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:left;padding:6px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:middle;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right}
+.dim{color:var(--muted)}
+a{color:var(--accent);font-weight:600;text-decoration:none}a:hover{text-decoration:underline}
+a.dog{color:inherit;font-weight:600;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+a.dog:hover{color:var(--accent);text-decoration-color:var(--accent)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--fg);color:var(--bg);font-size:13px;padding:9px 14px;border-radius:8px;z-index:60;max-width:calc(100vw - 32px)}
+button.ghost{font:inherit;font-size:13px;background:transparent;color:var(--muted);border:0;padding:2px 6px;cursor:pointer}
+dialog#dd{border:1px solid var(--line);border-radius:12px;padding:0;background:var(--surface);color:var(--fg);width:min(920px,calc(100vw - 32px));max-height:calc(100vh - 48px)}
+dialog#dd::backdrop{background:rgba(8,12,18,.5)}
+.dd-h{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:16px 18px;border-bottom:1px solid var(--line)}
+.dd-h h3{margin:0;font-size:17px;font-weight:700}
+.dd-h p{margin:3px 0 0;font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 10px}
+.dd-b{padding:6px 18px 14px;overflow:auto;max-height:calc(100vh - 220px)}
+.dd-f{padding:10px 18px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.dd-f b{color:var(--fg);font-weight:600}
+details{font-size:12.5px;color:var(--muted)}
+details summary{cursor:pointer;font-weight:600;color:var(--fg)}
+details dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:6px 16px;margin:10px 0 0}
+details dt{font-weight:600;color:var(--fg)}details dd{margin:0}
+@media (max-width:1100px){.health{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:900px){.pipes,.two{grid-template-columns:minmax(0,1fr)}.boxes{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .arow{grid-template-columns:80px minmax(0,1fr)}.arow>:nth-child(n+3){grid-column:2}.arow.head{display:none}}
+@media (max-width:560px){.health{grid-template-columns:repeat(2,minmax(0,1fr))}.stages{grid-template-columns:minmax(0,1fr)}details dl{grid-template-columns:minmax(0,1fr)}}
+:root{--teal:#0F766E;--teal-tint:#EEF8F6;--sand:#8A6D3B;--sand-tint:#F8F4EC;--slate:#475569;--slate-tint:#F1F4F8;--navy:#1F2F55}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--teal:#5CC2B6;--teal-tint:#122523;--sand:#CDB27C;--sand-tint:#241F16;--slate:#94A3B8;--slate-tint:#1A222D;--navy:#A9BCE6}}
+:root[data-theme="dark"]{--teal:#5CC2B6;--teal-tint:#122523;--sand:#CDB27C;--sand-tint:#241F16;--slate:#94A3B8;--slate-tint:#1A222D;--navy:#A9BCE6}
+.gcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.gk{display:grid;gap:7px;align-content:start;text-align:left;padding:14px;border-radius:10px;border:1px solid var(--line);border-top:4px solid var(--acc);background:var(--tint);color:var(--fg);font:inherit;cursor:pointer;min-width:0}
+.gk:hover{border-color:var(--acc)}
+.gk.teal{--tint:var(--teal-tint);--acc:var(--teal)}.gk.sand{--tint:var(--sand-tint);--acc:var(--sand)}.gk.slate{--tint:var(--slate-tint);--acc:var(--slate)}
+.gkh{display:flex;gap:9px;align-items:center}.gki{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:var(--surface);color:var(--acc);flex:none}.gki svg{width:17px;height:17px}
+.gkl{font-size:14px;font-weight:600;line-height:1.25}
+.gkv{font-size:26px;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}.gkv small{font-size:14px;font-weight:500;color:var(--muted)}
+.gkb{display:block;height:7px;border-radius:4px;background:var(--surface);overflow:hidden}.gkb i{display:block;height:100%;background:var(--slate);border-radius:4px}.gkb i.ok{background:var(--good)}
+.gks{display:flex;flex-wrap:wrap;gap:6px}.gk .trend{font-size:12.5px}
+.gkhid{font-size:12.5px;color:var(--muted)}
+.gkgo{font-size:13px;color:var(--navy);font-weight:500}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Leadership Overview</h1>
+      <div class="sub" id="sub"></div>
+    </div>
+    <div class="controls">
+      <label for="wk">Week (Mon–Sun ET)<select id="wk"></select></label>
+      <label for="rg">Region<select id="rg"></select></label>
+      <label for="ty">Employee type<select id="ty"></select></label>
+      <label for="ps">Individual<select id="ps"></select></label>
+    </div>
+  </header>
+
+  <div class="banner">Sample data for layout review. Recruiter numbers match the Recruiter 1-on-1 sample. Riley and the collection team are placeholder names; travel and collection figures are illustrative.</div>
+
+  <section class="panel" id="goalPanel">
+    <div class="phead"><h2>Recruiter goals <span class="scope" id="scGoal"></span></h2><span class="note" id="goalNote"></span></div>
+    <div class="gcards" id="gcards"></div>
+  </section>
+
+  <section class="panel">
+    <div class="phead"><h2>Operational health</h2><span class="note">Status vs. target · trend vs. prior week · click any box for the data</span></div>
+    <div class="health" id="health"></div>
+  </section>
+
+  <section class="panel">
+    <div class="phead"><h2>Needs attention</h2><span class="note" id="attNote"></span></div>
+    <div class="att" id="att"></div>
+  </section>
+
+  <section class="panel">
+    <div class="phead"><h2>Recruitment pipeline</h2><span class="note">Activity in the selected week</span></div>
+    <div class="pipe"><span class="scope" id="scRec" style="justify-self:start"></span><div class="stages" id="pRec"></div></div>
+  </section>
+
+  <section class="panel">
+    <div class="phead"><h2>Retirement &amp; archive risk <span class="scope" id="scRisk"></span></h2><span class="note" id="riskNote"></span></div>
+    <div class="boxes" id="tiers"></div>
+  </section>
+
+  <section class="two">
+    <div class="panel">
+      <div class="phead"><h2>Collection team <span class="scope" id="scCol2"></span></h2><span class="note" id="utilNote"></span></div>
+      <div id="utilBody"></div>
+      <div class="empty">Collection team stats are a separate pass; only hours and units are shown for now.</div>
+    </div>
+    <div class="panel">
+      <div class="phead"><h2>Travel</h2><span class="note" id="travNote">Sample only</span></div>
+      <div class="boxes" id="travel" style="grid-template-columns:repeat(2,minmax(0,1fr))"></div>
+    </div>
+  </section>
+
+  <section class="panel" id="recPanel">
+    <div class="phead"><h2>Recruiters</h2><span class="note">Open a recruiter's 1-on-1 for their tasks, events and dogs</span></div>
+    <div class="tbl"><table>
+      <thead><tr><th>Recruiter</th><th>Region</th><th class="r">Registrations</th><th class="r">vs target</th><th class="r">First-time donor show rate</th><th class="r">Approved</th><th class="r">Action / Critical</th><th class="r">Mi / registration</th><th>Status</th><th></th></tr></thead>
+      <tbody id="recT"></tbody>
+    </table></div>
+  </section>
+
+  <section class="panel" id="colPanel">
+    <div class="phead"><h2>Collection team</h2><span class="note">Columbus collection starts with the Dec 1 launch</span></div>
+    <div class="tbl"><table>
+      <thead><tr><th>Team member</th><th>Region</th><th class="r">Hours scheduled</th><th class="r">Hours worked</th><th class="r">Units collected</th></tr></thead>
+      <tbody id="colT"></tbody>
+    </table></div>
+  </section>
+
+  <dialog id="dd" aria-labelledby="ddT">
+    <div class="dd-h"><div><h3 id="ddT"></h3><p id="ddS"></p></div><button type="button" class="ghost" id="ddX">Close</button></div>
+    <div class="dd-b"><div class="tbl"><table><thead id="ddH"></thead><tbody id="ddB"></tbody></table></div></div>
+    <div class="dd-f" id="ddF"></div>
+  </dialog>
+
+  <details class="panel">
+    <summary>Metric definitions (proposed — confirm with Jake)</summary>
+    <dl>
+      <dt>Operating week</dt><dd>Monday 00:00 to Sunday 23:59 ET. Trends compare with the prior week.</dd>
+      <dt>Filters</dt><dd>Recruitment numbers belong to recruiters; hours and units collected belong to the collection team. When the filter is set to one type or person, sections for the other type show the region total and are tagged "Region total".</dd>
+      <dt>Recruiting</dt><dd>Registrations vs. the sum of recruiter weekly targets. On track ≥ 100%, Watch 80–99%, Needs attention below 80%.</dd>
+      <dt>Pipeline</dt><dd>Dogs approved by the medical director ÷ first appointments scheduled in the week. Target 70%.</dd>
+      <dt>First-time donor show rate</dt><dd>First appointments attended ÷ scheduled. Target 85%. Donation-day show rate is tracked separately under Donation days.</dd>
+      <dt>Travel efficiency</dt><dd>Recruiting miles per registration. Target 25 or fewer.</dd>
+      <dt>Donor retention</dt><dd>Share of Pending, Approved, Active and Lab work dogs not at Action, Critical or Past 95 days. Target 90%.</dd>
+      <dt>Risk tiers</dt><dd>Archive track (Pending, clock from registration): Watch 30–59, Action 60–79, Critical 80–95 days. Retire track (Approved from screening date; Active and Lab work from last donation): Watch 57–70, Action 71–84, Critical 85–95. Paused dogs and dogs scheduled before their deadline are excluded.</dd>
+      <dt>Needs attention</dt><dd>Generated from the same thresholds: what is off target, where, the likely driver, and who acts.</dd>
+    </dl>
+  </details>
+</div>
+
+<script>
+(function(){
+const ONE_ON_ONE='https://claude.ai/artifact/E4TccaN49tdJgJPwSz5aQC';
+/* ---------- shared sample model (matches Recruiter 1-on-1) ---------- */
+const RECS=[
+  {id:'tracy',name:'Tracy',region:'Columbus',target:10,seed:11},
+  {id:'donna',name:'Donna',region:'RVA',target:8,seed:23},
+  {id:'kim',name:'Kim',region:'DMV',target:6,seed:37},
+  {id:'hannah',name:'Hannah',region:'PGH',target:5,seed:51},
+  {id:'riley',name:'Riley',region:'DMV',target:5,seed:63}
+];
+const COLS=[
+  {id:'marcus',name:'Marcus',region:'DMV',seed:71},
+  {id:'elena',name:'Elena',region:'DMV',seed:83},
+  {id:'priya',name:'Priya',region:'RVA',seed:97},
+  {id:'sam',name:'Sam',region:'PGH',seed:109}
+];
+const REGIONS=['DMV','RVA','PGH','Columbus'];
+const NWEEKS=8, LAST_MON=new Date(2026,9,5);
+const weeks=[...Array(NWEEKS)].map((_,i)=>{const s=new Date(LAST_MON);s.setDate(s.getDate()-7*(NWEEKS-1-i));const e=new Date(s);e.setDate(e.getDate()+6);return{s,e}});
+const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const fd=d=>MON[d.getMonth()]+' '+d.getDate();
+const fwk=w=>w.s.getMonth()===w.e.getMonth()?`${fd(w.s)}–${w.e.getDate()}`:`${fd(w.s)} – ${fd(w.e)}`;
+const days=(a,b)=>Math.round((b-a)/864e5);
+const addD=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x};
+function rng(s){return function(){s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const pct=x=>Math.round(x*100);
+const sum=(a,f)=>a.reduce((s,x)=>s+f(x),0);
+
+function build(rc){
+  const r=rng(rc.seed), T=rc.target;
+  const wk=weeks.map((_,i)=>{
+    const signups=Math.max(1,Math.round(T*(0.65+0.6*r())));
+    const booked=Math.min(signups,Math.round(signups*(0.55+0.4*r())));
+    const sched=Math.max(1,Math.round(T*(0.6+0.45*r())));
+    const attended=Math.min(sched,Math.round(sched*(0.62+0.32*r())));
+    const pend=i===7?0.5:i===6?0.18:i===5?0.05:0;
+    const cPending=Math.round(signups*pend);
+    const cAtt=Math.min(signups-cPending,Math.round((booked*0.86+(signups-booked)*0.4)*(1-pend)));
+    const cDon=Math.round(cAtt*(0.82+0.15*r()));
+    const fu={leads:Math.round(r()*5),donors:0,msgs:Math.round(r()*3),partners:Math.round(r()*3)};
+    return{signups,booked,sched,attended,cPending,cAtt,cDon,fu};
+  });
+  const base=T*7;
+  wk.forEach(w=>{w.ret={on:Math.round(base*(0.78+0.04*r())),slip:Math.round(T*(0.9+0.6*r())),risk:Math.round(T*(0.3+0.5*r()))}});
+  const r2=rng(rc.seed*5+1);
+  wk.forEach(w=>{w.approved=Math.min(w.attended,Math.round(w.attended*(0.8+0.18*r2())));w.miles=110+Math.floor(r2()*220)});
+  return wk;
+}
+const RD={};RECS.forEach(rc=>RD[rc.id]=build(rc));
+
+function buildCol(c){
+  const r=rng(c.seed);
+  return weeks.map(()=>{
+    const schedHrs=32+Math.floor(r()*9);
+    const collectHrs=Math.round(schedHrs*(0.64+0.26*r()));
+    const unused=schedHrs-collectHrs, noDonorHrs=Math.round(unused*(0.35+0.4*r())), idleHrs=unused-noDonorHrs;
+    const donorsSched=18+Math.floor(r()*14), showed=Math.round(donorsSched*(0.76+0.18*r())), collected=showed-Math.round(showed*(0.03+0.07*r()));
+    return{schedHrs,collectHrs,noDonorHrs,idleHrs,donorsSched,showed,collected,miles:90+Math.floor(r()*170)};
+  });
+}
+const CD={};COLS.forEach(c=>CD[c.id]=buildCol(c));
+
+const NAMES=['Maple','Bruno','Juniper','Rocco','Pepper','Atlas','Ziggy','Luna','Moose','Hazel','Diesel','Cooper','Nala','Tucker','Olive','Gus','Willow','Bear','Penny','Remy','Finn','Lola','Otis','Stella','Milo','Ruby','Banjo','Clover'];
+const OWNERS=['Hollis','Okafor','Lisk','Delaney','Sato','Brennan','Carver','Pham','Gaines','Ortiz','Wren','Albright','Fitch','Moreno','Banks','Kowalski','Reyes','Nolan','Duarte','Price','Hale','Vance','Quinn','Mercer'];
+const POOL={};
+RECS.forEach((rc,ri)=>{
+  const r=rng(rc.seed*31+7), base=new Date(2026,9,11), a=[];
+  for(let i=0;i<18;i++){
+    const u=r(), st=u<0.28?'Pending':u<0.42?'Approved':u<0.72?'Active':u<0.82?'Lab work due':u<0.9?'Lab work pending':'Paused';
+    let off=st==='Pending'?22+Math.floor(r()*72):48+Math.floor(r()*46);
+    if(i===0&&st!=='Paused')off=97;
+    a.push({dog:NAMES[(i*5+ri*7)%NAMES.length],own:OWNERS[(i*7+ri*3)%OWNERS.length],st,clock:addD(base,-off),sched:r()<0.2?addD(base,2+Math.floor(r()*30)):null});
+  }
+  POOL[rc.id]=a;
+});
+const TIER={1:{l:'Watch',c:'watch',sub:'retire 57–70d · archive 30–59d'},2:{l:'Action',c:'act',sub:'retire 71–84d · archive 60–79d'},3:{l:'Critical',c:'crit',sub:'retire 85–95d · archive 80–95d'},4:{l:'Past 95 days',c:'past',sub:'missed by auto job'}};
+function riskList(rc,end){
+  let paused=0,sched=0;const list=[];
+  POOL[rc.id].forEach(x=>{
+    if(x.st==='Paused'){paused++;return}
+    const d=days(x.clock,end);if(d<0)return;
+    const arc=x.st==='Pending';
+    const tier=d>95?4:arc?(d>=80?3:d>=60?2:d>=30?1:0):(d>=85?3:d>=71?2:d>=57?1:0);
+    if(!tier)return;
+    const deadline=addD(x.clock,95);
+    if(x.sched&&x.sched>end&&x.sched<=deadline&&tier<4){sched++;return}
+    let next=arc?'Schedule screening':x.st==='Approved'?'Schedule first donation':'Schedule donation';
+    if(x.sched&&x.sched>deadline)next=`Move ${fd(x.sched)} appt before ${fd(deadline)}`;
+    if(tier===4)next=arc?'Flag to admin: archive missed':'Flag to admin: retire missed';
+    list.push({...x,d,tier,left:95-d,track:arc?'Archive':'Retire',from:arc?'Registered':x.st==='Approved'?'Screened':'Last donation',next,rec:rc.name,region:rc.region});
+  });
+  return{list,paused,sched};
+}
+const activeBase=rc=>rc.target*7+12;
+
+/* ---------- helpers ---------- */
+const $=id=>document.getElementById(id);
+const plural=(n,w)=>`${n} ${w}${n===1?'':'s'}`;
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const pill=(c,t)=>`<span class="pill ${c}">${t}</span>`;
+function trend(cur,prev,unit,goodUp){const d=Math.round((cur-prev)*10)/10;if(!d)return '<span class="trend tn">No change vs prior wk</span>';const good=(d>0)===goodUp;return `<span class="trend ${good?'tg':'tb'}">${d>0?'▲':'▼'} ${Math.abs(d)}${unit} vs prior wk</span>`}
+function status(v,good,watch,higher=true){const ok=higher?v>=good:v<=good, w=higher?v>=watch:v<=watch;return ok?['good','On track']:w?['warn','Watch']:['crit','Needs attention']}
+function spark(vals){
+  const w=120,h=26,p=3,mx=Math.max(...vals),mn=Math.min(...vals),rg=(mx-mn)||1;
+  const pts=vals.map((v,i)=>[p+i*(w-2*p)/Math.max(1,vals.length-1),h-p-(v-mn)/rg*(h-2*p)]);
+  const d=pts.map((q,i)=>(i?'L':'M')+q[0].toFixed(1)+' '+q[1].toFixed(1)).join(' ');
+  const e=pts.at(-1);
+  return `<svg class="spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" aria-hidden="true"><path d="${d} L${e[0].toFixed(1)} ${h} L${pts[0][0].toFixed(1)} ${h} Z" fill="var(--accent-soft)"/><path d="${d}" fill="none" stroke="var(--accent)" stroke-width="1.5" vector-effect="non-scaling-stroke"/><circle cx="${e[0]}" cy="${e[1]}" r="2.6" fill="var(--accent)"/></svg>`;
+}
+const attrs=(k,l)=>`data-drill="${k}" role="button" tabindex="0" aria-label="${esc(l)}: view data"`;
+
+/* ---------- filters ---------- */
+$('wk').innerHTML=weeks.map((w,i)=>`<option value="${i}">${fwk(w)}</option>`).reverse().join('');
+$('wk').value=String(NWEEKS-1);
+$('rg').innerHTML=['All regions',...REGIONS].map((r,i)=>`<option value="${i?r:''}">${r}</option>`).join('');
+$('ty').innerHTML=[['','All types'],['rec','Recruiter'],['col','Collection team']].map(([v,l])=>`<option value="${v}">${l}</option>`).join('');
+function fillPeople(){
+  const rg=$('rg').value, ty=$('ty').value, cur=$('ps').value;
+  const ppl=[...(ty!=='col'?RECS.map(p=>({...p,t:'rec'})):[]),...(ty!=='rec'?COLS.map(p=>({...p,t:'col'})):[])].filter(p=>!rg||p.region===rg);
+  $('ps').innerHTML=`<option value="">Everyone</option>`+ppl.map(p=>`<option value="${p.t}:${p.id}">${p.name} · ${p.t==='rec'?'Recruiter':'Collection'} · ${p.region}</option>`).join('');
+  if(ppl.some(p=>`${p.t}:${p.id}`===cur))$('ps').value=cur;
+}
+fillPeople();
+
+function scope(){
+  const rg=$('rg').value, ty=$('ty').value, ps=$('ps').value;
+  let recs=RECS.filter(p=>!rg||p.region===rg), cols=COLS.filter(p=>!rg||p.region===rg), recRegion=false, colRegion=false, who='Everyone';
+  if(ty==='rec')colRegion=true;
+  if(ty==='col')recRegion=true;
+  if(ps){
+    const [t,id]=ps.split(':');
+    if(t==='rec'){const p=RECS.find(x=>x.id===id);recs=[p];cols=COLS.filter(c=>c.region===p.region);colRegion=true;who=p.name}
+    else{const p=COLS.find(x=>x.id===id);cols=[p];recs=RECS.filter(c=>c.region===p.region);recRegion=true;who=p.name}
+  }
+  return{recs,cols,recRegion,colRegion,who,rg,ty,ps};
+}
+
+/* ---------- aggregation ---------- */
+function aggR(recs,wi){
+  const W=recs.map(rc=>({rc,w:RD[rc.id][wi]}));
+  return{signups:sum(W,x=>x.w.signups),target:sum(recs,rc=>rc.target),sched:sum(W,x=>x.w.sched),attended:sum(W,x=>x.w.attended),approved:sum(W,x=>x.w.approved),miles:sum(W,x=>x.w.miles),leads:sum(W,x=>x.w.fu.leads),W};
+}
+function aggC(cols,wi){
+  const W=cols.map(c=>({c,w:CD[c.id][wi]}));
+  const k=['schedHrs','collectHrs','noDonorHrs','idleHrs','donorsSched','showed','collected','miles'],o={W};
+  k.forEach(f=>o[f]=sum(W,x=>x.w[f]));return o;
+}
+function aggRisk(recs,wi){
+  const end=weeks[wi].e;let list=[],paused=0,sched=0;
+  recs.forEach(rc=>{const r=riskList(rc,end);list=list.concat(r.list);paused+=r.paused;sched+=r.sched});
+  list.sort((a,b)=>b.tier-a.tier||a.left-b.left);
+  const active=sum(recs,activeBase), ac=list.filter(x=>x.tier>=2).length;
+  return{list,paused,sched,active,retention:active?pct(1-ac/active):100};
+}
+function metrics(S,wi){
+  const R=aggR(S.recs,wi),C=aggC(S.cols,wi),K=aggRisk(S.recs,wi);
+  return{R,C,K,
+    recruiting:R.target?pct(R.signups/R.target):0,
+    pipeline:R.sched?pct(R.approved/R.sched):0,
+    show:R.sched?pct(R.attended/R.sched):0,
+    util:C.schedHrs?pct(C.collectHrs/C.schedHrs):null,
+    travel:R.signups?Math.round(R.miles/R.signups*10)/10:0,
+    retention:K.retention,
+    dshow:C.donorsSched?pct(C.showed/C.donorsSched):null,
+    miPerUnit:C.collected?Math.round(C.miles/C.collected*10)/10:null};
+}
+
+/* ---------- render ---------- */
+const MI={
+  reg:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="6.5" cy="5.5" r="2.5"/><path d="M2 13.5c.5-2.5 2.3-4 4.5-4s4 1.5 4.5 4M12.5 5v4M10.5 7h4" stroke-linecap="round"/></svg>',
+  show:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2.5" y="3.5" width="11" height="10" rx="1.5"/><path d="M2.5 6.5h11M5.5 2v3M10.5 2v3M6 10l1.5 1.5L10.5 8.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  lead:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3.5 2.5h2.2l1.1 2.8-1.4 1a7.5 7.5 0 0 0 4.3 4.3l1-1.4 2.8 1.1v2.2a1 1 0 0 1-1 1A10.5 10.5 0 0 1 2.5 3.5a1 1 0 0 1 1-1Z" stroke-linejoin="round"/></svg>',
+  part:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 7 8 2.5 14 7M3.5 6v7.5h9V6M6.5 13.5V10h3v3.5" stroke-linejoin="round"/></svg>',
+  evt:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3.5 14V2.5M3.5 3h8l-1.8 2.8 1.8 2.7h-8" stroke-linejoin="round" stroke-linecap="round"/></svg>',
+  risk:'<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><ellipse cx="4" cy="6" rx="1.5" ry="2"/><ellipse cx="12" cy="6" rx="1.5" ry="2"/><ellipse cx="6.3" cy="3.4" rx="1.4" ry="1.9"/><ellipse cx="9.7" cy="3.4" rx="1.4" ry="1.9"/><path d="M8 7.5c-2 0-3.8 2.3-3.8 4 0 1.3 1.1 1.8 2.1 1.6.6-.1 1.1-.4 1.7-.4s1.1.3 1.7.4c1 .2 2.1-.3 2.1-1.6 0-1.7-1.8-4-3.8-4Z"/></svg>',
+  ontime:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 4.5V8l2.5 1.5" stroke-linecap="round"/></svg>'
+};
+const MTONE={reg:'teal',show:'teal',lead:'slate',part:'slate',evt:'slate',risk:'sand',ontime:'sand'};
+/* which goals show on each recruiter's dashboard (set on the Recruiter goals page) */
+const VIS_DEFAULT={kim:{risk:false},riley:{},hannah:{evt:false},donna:{},tracy:{}};
+const VKEY='navbb-goals:visibility';
+function loadVis(){let v=null;try{v=JSON.parse(localStorage.getItem(VKEY))}catch(e){}return v||JSON.parse(JSON.stringify(VIS_DEFAULT))}
+function saveVis(v){try{localStorage.setItem(VKEY,JSON.stringify(v))}catch(e){}}
+const shown=(V,id,k)=>!(V[id]&&V[id][k]===false);
+let VIS=loadVis();
+const GOALS={tracy:{reg:10,show:85,lead:20,part:10,evt:2,risk:3,ontime:90},donna:{reg:8,show:85,lead:18,part:9,evt:2,risk:4,ontime:90},kim:{reg:6,show:85,lead:15,part:8,evt:1,risk:4,ontime:90},hannah:{reg:5,show:85,lead:12,part:6,evt:1,risk:4,ontime:90},riley:{reg:5,show:85,lead:12,part:6,evt:1,risk:3,ontime:90}};
+const GM=[['reg','Registrations',''],['show','First-time donor show rate','%'],['lead','Lead follow-ups completed',''],['part','Partner contacts',''],['evt','Recruitment events held',''],['risk','Dogs moved out of Action or Critical',''],['ontime','Tasks completed on time','%']];
+function gActual(rc,wi){const w=RD[rc.id][wi],G=GOALS[rc.id],r=rng(rc.seed*13+wi*7+3);
+  return{reg:w.signups,show:pct(w.attended/w.sched),lead:Math.round(G.lead*(0.6+0.5*r())),part:Math.round(G.part*(0.6+0.5*r())),evt:Math.max(0,G.evt+Math.round(r()*1.6-0.5)),risk:Math.round(G.risk*(0.4+0.8*r())),ontime:Math.min(100,70+Math.round(r()*28)),_s:w.sched,_a:w.attended}}
+function gAgg(recs,wi){const A=recs.map(rc=>gActual(rc,wi)),o={},g={};
+  GM.forEach(([k,,u])=>{if(k==='show'){const sc=sum(A,x=>x._s);o[k]=sc?pct(sum(A,x=>x._a)/sc):0}else if(u)o[k]=Math.round(sum(A,x=>x[k])/Math.max(1,A.length));else o[k]=sum(A,x=>x[k]);
+    g[k]=u?Math.round(sum(recs,rc=>GOALS[rc.id][k])/Math.max(1,recs.length)):sum(recs,rc=>GOALS[rc.id][k])});
+  return{o,g,A}}
+let DRILL={};
+function render(){
+  const wi=+$('wk').value, S=scope(), M=metrics(S,wi), Pm=metrics(S,Math.max(0,wi-1));
+  const hist=k=>weeks.slice(0,wi+1).map((_,i)=>{const v=metrics(S,i)[k];return v==null?0:v});
+  const tag=(id,on)=>{$(id).textContent=on?'Region total':'';$(id).hidden=!on};
+  tag('scRec',S.recRegion);tag('scCol2',S.colRegion);tag('scRisk',S.recRegion);
+  const rgL=S.rg||'All regions', tyL={'':'All types',rec:'Recruiters',col:'Collection team'}[S.ty];
+  $('sub').textContent=`${fwk(weeks[wi])}, 2026 · ${rgL} · ${tyL} · ${S.who}`;
+  DRILL={};
+
+  /* recruiter goals */
+  {const recs=S.recs,G=gAgg(recs,wi),GP=gAgg(recs,Math.max(0,wi-1)),one=S.ps&&S.ps.startsWith('rec:')?recs[0]:null;
+   $('goalPanel').hidden=!recs.length;$('scGoal').textContent=S.recRegion?'Region total':'';$('scGoal').hidden=!S.recRegion;
+   const metN=GM.filter(([k])=>G.o[k]>=G.g[k]).length;
+   $('goalNote').textContent=`${metN} of ${GM.length} goals met · ${one?one.name:recs.length===1?recs[0].name:plural(recs.length,'recruiter')} · click any card for the breakdown`;
+   $('gcards').innerHTML=GM.map(([k,l,u])=>{const a=G.o[k],g=G.g[k],ok=a>=g,gap=g-a,w=Math.min(100,g?a/g*100:0),pu=u?' pts':'';
+     const hid=one?!shown(VIS,one.id,k):false,hidN=one?0:recs.filter(rc=>!shown(VIS,rc.id,k)).length;
+     return `<button type="button" class="gk ${MTONE[k]}" ${attrs('g-'+k,l)}><span class="gkh"><span class="gki">${MI[k]}</span><span class="gkl">${l}</span></span>
+       <span class="gkv">${a}${u}<small> of ${g}${u} goal</small></span><span class="gkb" aria-hidden="true"><i class="${ok?'ok':''}" style="width:${w}%"></i></span>
+       <span class="gks">${ok?pill('good',gap<0?`Met, ${-gap}${pu} over`:'Met'):pill('neutral',`${gap}${pu} below goal`)}</span>${trend(a,GP.o[k],pu,true)}
+       ${hid?`<span class="gkhid">Hidden from ${esc(one.name)}'s dashboard</span>`:hidN?`<span class="gkhid">Hidden on ${plural(hidN,'recruiter dashboard')}</span>`:''}<span class="gkgo">View breakdown</span></button>`}).join('');
+   GM.forEach(([k,l,u])=>{const pu=u?' pts':'';DRILL['g-'+k]={t:l,s:`${G.o[k]}${u} of ${G.g[k]}${u} goal`,tr:trend(G.o[k],GP.o[k],pu,true),cols:['Person','Region','Actual','Goal','Status','Change'],
+     rows:recs.map((rc,i)=>{const a=G.A[i][k],gg=GOALS[rc.id][k],b=GP.A[i][k];return[`<b>${rc.name}</b>`,rc.region,a+u,gg+u,a>=gg?pill('good','Met'):pill('neutral',`${gg-a}${pu} below`),trend(a,b,pu,true)]}),link:'Recruiter goals › '+l}});}
+
+  /* per-person breakdown rows for drills */
+  const recRows=(f,fmt,pf)=>S.recs.map(rc=>{const a=f(rc,wi),b=f(rc,Math.max(0,wi-1));return[`<b>${rc.name}</b>`,rc.region,fmt(a),fmt(b),pf(a,b)]});
+  const colRows=(f,fmt,pf)=>S.cols.map(c=>{const a=f(c,wi),b=f(c,Math.max(0,wi-1));return[`<b>${c.name}</b>`,c.region,fmt(a),fmt(b),pf(a,b)]});
+  const BCOLS=['Person','Region','This week','Prior week','Change'];
+
+  /* health */
+  const H=[
+    {k:'h-rec',l:'Recruiting',v:M.recruiting,p:Pm.recruiting,st:status(M.recruiting,100,80),txt:`${M.R.signups} registrations · ${M.recruiting}% of target ${M.R.target}`,u:' pts',up:true,
+      rows:recRows((rc,i)=>RD[rc.id][i].signups,v=>v,(a,b)=>trend(a,b,'',true)),link:'Recruiters › registrations by person'},
+    {k:'h-pipe',l:'Pipeline',v:M.pipeline,p:Pm.pipeline,st:status(M.pipeline,70,60),txt:`${M.R.approved} approved of ${M.R.sched} first appts (${M.pipeline}%)`,u:' pts',up:true,
+      rows:recRows((rc,i)=>RD[rc.id][i].approved,v=>v,(a,b)=>trend(a,b,'',true)),link:'Donors › approved this week'},
+    {k:'h-show',l:'First-time donor show rate',v:M.show,p:Pm.show,st:status(M.show,85,75),txt:`${M.show}% (target 85%)`,u:' pts',up:true,
+      rows:recRows((rc,i)=>pct(RD[rc.id][i].attended/RD[rc.id][i].sched),v=>v+'%',(a,b)=>trend(a,b,' pts',true)),link:'Calendar › first appointments'},
+    {k:'h-trav',l:'Travel efficiency',v:M.travel,p:Pm.travel,st:status(M.travel,25,30,false),txt:`${M.travel} mi per registration (target ≤ 25)`,u:' mi',up:false,
+      rows:recRows((rc,i)=>Math.round(RD[rc.id][i].miles/RD[rc.id][i].signups*10)/10,v=>v+' mi',(a,b)=>trend(a,b,' mi',false)),link:'Travel & Mileage › recruiting miles'},
+    {k:'h-ret',l:'Donor retention',v:M.retention,p:Pm.retention,st:status(M.retention,90,85),txt:`${M.retention}% not at Action or Critical (target 90%)`,u:' pts',up:true,
+      rows:S.recs.map(rc=>{const a=aggRisk([rc],wi),b=aggRisk([rc],Math.max(0,wi-1));return[`<b>${rc.name}</b>`,rc.region,a.retention+'%',b.retention+'%',trend(a.retention,b.retention,' pts',true)]}),link:'Donors › At risk'}
+  ];
+  const sparkKey={'h-rec':'recruiting','h-pipe':'pipeline','h-show':'show','h-trav':'travel','h-ret':'retention'};
+  $('health').innerHTML=H.map(h=>`<div class="hb drill" ${attrs(h.k,h.l)}><div class="lbl">${h.l}</div><div class="st ${h.st[0]}" style="color:var(--${h.st[0]==='neutral'?'muted':h.st[0]})">${h.st[1]}</div><div class="v">${h.txt}</div>${trend(h.v,h.p,h.u,h.up)}${spark(hist(sparkKey[h.k]))}</div>`).join('');
+  H.forEach(h=>DRILL[h.k]={t:h.l,s:h.txt,tr:trend(h.v,h.p,h.u,h.up),cols:BCOLS,rows:h.rows,link:h.link});
+
+  /* needs attention */
+  const A=[];
+  if(!S.recRegion)S.recs.forEach(rc=>{
+    const w=RD[rc.id][wi],a=pct(w.signups/rc.target),sr=pct(w.attended/w.sched),rk=riskList(rc,weeks[wi].e).list,mi=Math.round(w.miles/w.signups);
+    if(a<80)A.push({sev:a<70?3:2,what:`Registrations at ${a}% of target`,where:`${rc.region} · ${rc.name}`,why:sr<85?`First-time donor show rate ${sr}%; ${w.fu.leads} lead follow-ups overdue`:`${w.fu.leads} lead follow-ups overdue`,who:rc.name,k:'h-rec'});
+    if(sr<75)A.push({sev:2,what:`First-time donor show rate ${sr}%`,where:`${rc.region} · ${rc.name}`,why:`${w.sched-w.attended} no-shows of ${w.sched} scheduled`,who:`${rc.name} (reminders, rebooking)`,k:'h-show'});
+    const cr=rk.filter(x=>x.tier===3).length,pa=rk.filter(x=>x.tier===4).length;
+    if(cr)A.push({sev:3,what:`${cr} dog${cr>1?'s':''} within 10 days of retire/archive`,where:`${rc.region} · ${rc.name}`,why:'No screening or donation scheduled before deadline',who:rc.name,k:'tier-3'});
+    if(pa)A.push({sev:3,what:`${pa} dog${pa>1?'s':''} past 95 days, not retired/archived`,where:`${rc.region} · ${rc.name}`,why:'Auto-retire / auto-archive job missed them',who:'Admin (system fix)',k:'tier-4'});
+    if(mi>30)A.push({sev:1,what:`${mi} mi per registration`,where:`${rc.region} · ${rc.name}`,why:`${w.miles} mi for ${w.signups} registrations`,who:`${rc.name} (route planning)`,k:'h-trav'});
+  });
+  A.sort((a,b)=>b.sev-a.sev);
+  const sevP=s=>s===3?pill('crit','Critical'):s===2?pill('warn','Action'):pill('neutral','Watch');
+  $('attNote').textContent=A.length?`${A.length} item${A.length>1?'s':''} · What → Where → Why → Who`:'';
+  $('att').innerHTML=A.length?`<div class="arow head"><span>Severity</span><span>What</span><span>Where</span><span>Why</span><span>Who acts</span></div>`+A.map(a=>`<div class="arow drill" ${attrs(a.k,a.what)}><span>${sevP(a.sev)}</span><b>${esc(a.what)}</b><span>${esc(a.where)}</span><span class="m">${esc(a.why)}</span><span>${esc(a.who)}</span></div>`).join(''):`<div class="empty">Nothing off target for this selection.</div>`;
+
+  /* pipeline */
+  const stg=(k,l,v,p,cv,rows,link)=>{DRILL[k]={t:l,s:`${v} this week`,tr:trend(v,p,'',true),cols:BCOLS,rows,link};return `<div class="stage drill" ${attrs(k,l)}><span class="l">${l}</span><span class="n">${v}</span>${cv?`<span class="cv dim">${cv}</span>`:''}${trend(v,p,'',true)}</div>`};
+  const rr=f=>recRows(f,v=>v,(a,b)=>trend(a,b,'',true)), cr=f=>colRows(f,v=>v,(a,b)=>trend(a,b,'',true));
+  $('pRec').innerHTML=
+    stg('p-sign','Registered',M.R.signups,Pm.R.signups,'',rr((rc,i)=>RD[rc.id][i].signups),'Donors › registrations this week')+
+    stg('p-att','Screened (first appt attended)',M.R.attended,Pm.R.attended,`${M.show}% of ${M.R.sched} scheduled`,rr((rc,i)=>RD[rc.id][i].attended),'Calendar › first appointments')+
+    stg('p-appr','Approved',M.R.approved,Pm.R.approved,`${M.R.attended?pct(M.R.approved/M.R.attended):0}% of screened`,rr((rc,i)=>RD[rc.id][i].approved),'Donors › status Approved');
+
+  /* risk */
+  const PK=aggRisk(S.recs,Math.max(0,wi-1));
+  $('riskNote').textContent=`${M.K.active} dogs in program · excluded: ${M.K.paused} paused, ${M.K.sched} scheduled before deadline`;
+  const rcol=['Donor','Owner','Recruiter','Region','Track','Fetch status','Days','Days left','Tier','Next step'];
+  $('tiers').innerHTML=[1,2,3,4].map(t=>{
+    const L=M.K.list.filter(x=>x.tier===t),pl=PK.list.filter(x=>x.tier===t).length,ar=L.filter(x=>x.track==='Archive').length;
+    DRILL['tier-'+t]={t:`${TIER[t].l} tier`,s:`${L.length} dogs · ${TIER[t].sub}`,tr:trend(L.length,pl,'',false),cols:rcol,
+      rows:L.map(x=>[`<a href="#" class="dog" data-dog="${esc(x.dog)}">${esc(x.dog)}</a>`,esc(x.own),x.rec,x.region,x.track,esc(x.st),`<span class="num">${x.d}</span>`,`<span class="num">${x.left>=0?x.left:'—'}</span>`,pill(TIER[x.tier].c,TIER[x.tier].l),esc(x.next)]),link:`Donors › At risk, ${TIER[t].l}`};
+    return `<div class="box drill" ${attrs('tier-'+t,TIER[t].l)}><div class="top">${pill(TIER[t].c,TIER[t].l)}<span>${TIER[t].sub}</span></div><b>${L.length}</b><span class="sp">${L.length-ar} retire · ${ar} archive</span>${trend(L.length,pl,'',false)}</div>`;
+  }).join('');
+
+  /* collection team: hours and units only */
+  if(!S.cols.length){$('utilNote').textContent='';$('utilBody').innerHTML=`<div class="empty">No collection team in scope. Columbus collection starts with the Dec 1 launch.</div>`}
+  else{
+    const C=M.C,PC=Pm.C;
+    $('utilNote').textContent=`${S.cols.length} team member${S.cols.length>1?'s':''}`;
+    const ub=(k,l,v,p,unit,f,link)=>{DRILL[k]={t:l,s:`${v}${unit} this week`,tr:trend(v,p,unit,true),cols:BCOLS,rows:colRows(f,x=>x+unit,(a,b)=>trend(a,b,unit,true)),link};return `<div class="box drill" ${attrs(k,l)}><div class="top">${l}</div><b>${v}</b>${trend(v,p,unit,true)}</div>`};
+    $('utilBody').innerHTML=`<div class="boxes3">${ub('c-sch','Hours scheduled',C.schedHrs,PC.schedHrs,' hrs',(c,i)=>CD[c.id][i].schedHrs,'Collection Team › scheduled hours')}${ub('c-wrk','Hours worked',C.collectHrs,PC.collectHrs,' hrs',(c,i)=>CD[c.id][i].collectHrs,'Collection Team › hours worked')}${ub('c-units','Units collected',C.collected,PC.collected,'',(c,i)=>CD[c.id][i].collected,'Collection Team › units collected')}</div>`;
+  }
+
+  /* travel */
+  const tb=(k,l,v,p,unit,up,sp,rows,link)=>{DRILL[k]={t:l,s:`${v}${unit} this week`,tr:trend(v,p,unit,up),cols:BCOLS,rows,link};return `<div class="box drill" ${attrs(k,l)}><div class="top">${l}</div><b>${v}</b><span class="sp">${sp}</span>${trend(v,p,unit,up)}</div>`};
+  $('travNote').textContent=S.recRegion?'Sample only · recruiters, region total':'Sample only · recruiters';
+  $('travel').innerHTML=
+    tb('t-rmi','Recruiting miles',M.R.miles,Pm.R.miles,' mi',false,'miles',recRows((rc,i)=>RD[rc.id][i].miles,v=>v+' mi',(a,b)=>trend(a,b,' mi',false)),'Travel & Mileage › recruiters')+
+    tb('t-mps','Miles per registration',M.travel,Pm.travel,' mi',false,'target ≤ 25',DRILL['h-trav'].rows,'Travel & Mileage › recruiting efficiency');
+
+  /* team tables */
+  const showRec=S.ty!=='col'&&!(S.recRegion&&$('ps').value), showCol=S.ty!=='rec'&&!(S.colRegion&&$('ps').value);
+  $('recPanel').hidden=!showRec;$('colPanel').hidden=!showCol;
+  $('recT').innerHTML=S.recs.map(rc=>{
+    const w=RD[rc.id][wi],a=pct(w.signups/rc.target),sr=pct(w.attended/w.sched),rk=riskList(rc,weeks[wi].e).list.filter(x=>x.tier===2||x.tier===3).length,mi=Math.round(w.miles/w.signups*10)/10;
+    const bad=[a<80,sr<75,rk>=5,mi>30].filter(Boolean).length,st=bad>=2?pill('crit','Needs attention'):bad?pill('warn','Watch'):pill('good','On track');
+    return `<tr><td><b>${rc.name}</b></td><td>${rc.region}</td><td class="r num">${w.signups}</td><td class="r num">${a}%</td><td class="r num">${sr}%</td><td class="r num">${w.approved}</td><td class="r num">${rk}</td><td class="r num">${mi}</td><td>${st}</td><td><a href="${ONE_ON_ONE}" target="_blank" rel="noopener">1-on-1 ↗</a></td></tr>`;
+  }).join('')||`<tr><td colspan="10" class="empty">No recruiters in this selection.</td></tr>`;
+  $('colT').innerHTML=S.cols.map(c=>{const w=CD[c.id][wi];return `<tr><td><b>${c.name}</b></td><td>${c.region}</td><td class="r num">${w.schedHrs}</td><td class="r num">${w.collectHrs}</td><td class="r num">${w.collected}</td></tr>`}).join('')||`<tr><td colspan="5" class="empty">No collection team in this selection.</td></tr>`;
+}
+
+function openDrill(k){
+  const x=DRILL[k];if(!x)return;
+  $('ddT').textContent=x.t;
+  $('ddS').innerHTML=`<span>${esc(x.s)}</span>${x.tr||''}`;
+  $('ddH').innerHTML='<tr>'+x.cols.map(c=>`<th>${c}</th>`).join('')+'</tr>';
+  $('ddB').innerHTML=x.rows.length?x.rows.map(r=>'<tr>'+r.map(c=>`<td>${c}</td>`).join('')+'</tr>').join(''):`<tr><td colspan="${x.cols.length}" class="empty">Nothing here for this selection.</td></tr>`;
+  $('ddF').innerHTML=`In the system, this box opens <b>${esc(x.link)}</b>.`;
+  const dd=$('dd');try{dd.showModal()}catch(e){dd.setAttribute('open','')}
+}
+document.addEventListener('click',e=>{const dg=e.target.closest('a.dog');if(dg){e.preventDefault();const host=$('dd').open?$('dd'):document.body;let t=document.querySelector('.toast');if(t)t.remove();t=document.createElement('div');t.className='toast';t.setAttribute('role','status');t.textContent=`Opens ${dg.dataset.dog}'s donor page in the system.`;host.appendChild(t);setTimeout(()=>t.remove(),2600);return}
+  const el=e.target.closest('[data-drill]');if(el)openDrill(el.dataset.drill)});
+document.addEventListener('keydown',e=>{const el=e.target.closest&&e.target.closest('[data-drill]');if(el&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openDrill(el.dataset.drill)}});
+$('ddX').addEventListener('click',()=>{const d=$('dd');d.close?d.close():d.removeAttribute('open')});
+$('dd').addEventListener('click',e=>{if(e.target===$('dd'))$('dd').close()});
+$('wk').addEventListener('change',render);
+['rg','ty'].forEach(id=>$(id).addEventListener('change',()=>{fillPeople();render()}));
+$('ps').addEventListener('change',render);
+render();
+})();
+</script>
+
+</body></html>

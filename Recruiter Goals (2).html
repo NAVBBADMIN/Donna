@@ -1,0 +1,596 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Recruiter Goals</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* NAVBB Master UI Design Standard v2.0 — focused-workflow page (centered container), comfortable density.
+   Color roles: location (v1.1) · status (v1.1 + neutral) · category tint (operational slate) · primary navy · neutral gray.
+   Location and status values below are the v1.1 light-mode references; production must import the v1.1 tokens. */
+:root{
+  --page:#F4F6F8;--surface:#FFFFFF;--surface-2:#EEF1F5;--line:#DCE1E7;--line-strong:#C3CBD5;
+  --fg:#1B2433;--muted:#5B6677;
+  --navy:#1F2F55;--navy-fill:#1F2F55;--on-navy:#FFFFFF;--navy-soft:#E6EAF2;
+  --success:#15803D;--success-tint:#E3F4E9;--success-text:#166534;
+  --warning:#CA8A04;--warning-tint:#FDF3D7;--warning-text:#854D0E;
+  --danger:#BE123C;--danger-tint:#FCE7EC;--danger-text:#9F1239;
+  --neutral-tint:#EEF1F5;--neutral-text:#4B5563;
+  --slate-tint:#F1F4F8;--slate:#475569;
+  --loc-dmv:#C94A0C;--loc-pgh:#7FA314;--loc-rva:#1D4ED8;--loc-col:#6B2FA8;
+  --loc-mix-bg:12%;--loc-mix-fg:#000000;--loc-mix-fg-amt:35%;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --page:#0F141B;--surface:#161D27;--surface-2:#1C2531;--line:#2A3542;--line-strong:#3A4757;
+  --fg:#E5EAF0;--muted:#9AA5B5;
+  --navy:#A9BCE6;--navy-fill:#2E4677;--on-navy:#FFFFFF;--navy-soft:#1E2A42;
+  --success:#22A055;--success-tint:#14301F;--success-text:#6FD39A;
+  --warning:#CA8A04;--warning-tint:#3A2C10;--warning-text:#EBC15A;
+  --danger:#E1426A;--danger-tint:#3B1A24;--danger-text:#F59AB0;
+  --neutral-tint:#222C38;--neutral-text:#B3BDCA;
+  --slate-tint:#1A222D;--slate:#94A3B8;
+  --loc-mix-bg:26%;--loc-mix-fg:#FFFFFF;--loc-mix-fg-amt:45%;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --page:#0F141B;--surface:#161D27;--surface-2:#1C2531;--line:#2A3542;--line-strong:#3A4757;
+  --fg:#E5EAF0;--muted:#9AA5B5;
+  --navy:#A9BCE6;--navy-fill:#2E4677;--on-navy:#FFFFFF;--navy-soft:#1E2A42;
+  --success:#22A055;--success-tint:#14301F;--success-text:#6FD39A;
+  --warning:#CA8A04;--warning-tint:#3A2C10;--warning-text:#EBC15A;
+  --danger:#E1426A;--danger-tint:#3B1A24;--danger-text:#F59AB0;
+  --neutral-tint:#222C38;--neutral-text:#B3BDCA;
+  --slate-tint:#1A222D;--slate:#94A3B8;
+  --loc-mix-bg:26%;--loc-mix-fg:#FFFFFF;--loc-mix-fg-amt:45%;color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--page);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.5;font-variant-numeric:tabular-nums}
+.wrap{max-width:1000px;margin:0 auto;padding-block:24px 0;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:16px}
+h1{font-size:24px;font-weight:600;margin:0;line-height:1.25}
+h2{font-size:18px;font-weight:600;margin:0}
+h3{font-size:16px;font-weight:600;margin:0}
+.sup{font-size:13px;color:var(--muted)}
+svg.i{width:16px;height:16px;flex:none;vertical-align:-3px}
+a{color:var(--navy);text-decoration:underline;text-underline-offset:2px}
+
+/* controls */
+select,input[type=text],input[type=number],input[type=date]{font:inherit;font-size:15px;color:var(--fg);background:var(--surface);border:1px solid var(--line-strong);border-radius:8px;height:40px;padding:0 12px;min-width:0}
+:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+button{font:inherit;font-size:15px;font-weight:500;height:40px;border-radius:8px;padding:0 16px;cursor:pointer;border:1px solid var(--line-strong);background:var(--surface);color:var(--fg);display:inline-flex;align-items:center;gap:8px;justify-content:center}
+button:hover{border-color:var(--navy)}
+button.primary{background:var(--navy-fill);border-color:var(--navy-fill);color:var(--on-navy);font-weight:600}
+button.tertiary{border-color:transparent;background:transparent;color:var(--navy);padding:0 8px}
+button.tertiary:hover{text-decoration:underline}
+button.icon{width:40px;padding:0}
+label.f{display:grid;gap:6px;font-size:13px;font-weight:500;color:var(--muted)}
+.seg{display:inline-flex;border:1px solid var(--line-strong);border-radius:8px;overflow:hidden;background:var(--surface)}
+.seg button{border:0;border-radius:0;height:38px;padding:0 14px;color:var(--muted);background:transparent}
+.seg button+button{border-left:1px solid var(--line-strong)}
+.seg button[aria-pressed="true"]{background:var(--navy-soft);color:var(--navy);font-weight:600;box-shadow:inset 0 -2px 0 var(--navy)}
+
+/* badges, chips, location tags */
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:500;line-height:1;padding:4px 8px;border-radius:4px;white-space:nowrap}
+.badge svg.i{width:14px;height:14px;vertical-align:0}
+.b-success{background:var(--success-tint);color:var(--success-text)}
+.b-warning{background:var(--warning-tint);color:var(--warning-text)}
+.b-danger{background:var(--danger-tint);color:var(--danger-text)}
+.b-neutral{background:var(--neutral-tint);color:var(--neutral-text)}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:13px;padding:3px 8px;border-radius:4px;background:var(--neutral-tint);color:var(--neutral-text);white-space:normal}
+.loc{display:inline-flex;align-items:center;font-size:12.5px;font-weight:600;letter-spacing:.02em;padding:2px 10px;border-radius:999px;
+  background:color-mix(in srgb,var(--c) var(--loc-mix-bg),var(--surface));color:color-mix(in srgb,var(--c),var(--loc-mix-fg) var(--loc-mix-fg-amt));border:1px solid color-mix(in srgb,var(--c) 35%,transparent)}
+.loc.DMV{--c:var(--loc-dmv)}.loc.PGH{--c:var(--loc-pgh)}.loc.RVA{--c:var(--loc-rva)}.loc.COL{--c:var(--loc-col)}
+
+/* header */
+header{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:flex-end;justify-content:space-between}
+.hmeta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:6px;font-size:13px;color:var(--muted)}
+.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end}
+.notice{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--warning-text);background:var(--warning-tint);border-radius:8px;padding:10px 12px}
+
+/* tabs */
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);overflow-x:auto}
+.tab{border:0;border-radius:0;background:transparent;height:44px;padding:0 14px;color:var(--muted);font-weight:500;border-bottom:3px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.tab:hover{color:var(--fg);border-color:transparent;border-bottom-color:var(--line-strong)}
+.tab[aria-selected="true"]{color:var(--navy);font-weight:600;border-bottom-color:var(--navy)}
+.tab .chip{margin-left:4px;padding:1px 7px;font-size:12px}
+
+/* period bar */
+.pbar{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.pcal{width:48px;height:48px;border-radius:10px;background:var(--navy-soft);color:var(--navy);display:grid;place-items:center}
+.pcal svg{width:24px;height:24px}
+.pk{font-size:13px;color:var(--muted)}
+.pv{font-size:20px;font-weight:600;display:flex;flex-wrap:wrap;gap:8px;align-items:center;line-height:1.3}
+.pnav{display:flex;gap:8px;align-items:center}
+
+.sec{display:grid;gap:12px}
+.sech{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:flex-end;justify-content:space-between}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-width:0}
+
+/* goal cards */
+.gcs{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+.gc{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:12px;min-width:0}
+.gc.changed{border-color:var(--navy);box-shadow:inset 0 0 0 1px var(--navy)}
+.gc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.gc-l{font-weight:600;font-size:16px;line-height:1.3}
+.gc-per{display:block;font-weight:400;font-size:13px;color:var(--muted)}
+.step{display:flex;align-items:center;gap:8px}
+.step input{width:104px;height:52px;text-align:center;font-size:32px;font-weight:600;border-radius:8px;-moz-appearance:textfield;padding:0 6px}
+.step input::-webkit-outer-spin-button,.step input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.step .u{font-size:18px;color:var(--muted)}
+.gbar{position:relative;height:10px;background:var(--surface-2);border-radius:4px}
+.gbar i{position:absolute;left:0;top:0;bottom:0;border-radius:4px}
+.gbar b{position:absolute;top:-5px;bottom:-5px;width:3px;background:var(--fg);border-radius:1px}
+.gc-foot{font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.gc-foot strong{color:var(--fg);font-weight:600}
+.callout{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px 16px;border-radius:12px;background:var(--surface-2);font-size:15px}
+.callout strong{font-weight:600}
+.chk{display:flex;gap:10px;align-items:center;font-size:15px;color:var(--fg);cursor:pointer}
+.chk input{accent-color:var(--navy);width:18px;height:18px}
+
+/* events */
+.evs{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+.ev{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:12px;min-width:0}
+.evh{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.evt{font-size:13px;color:var(--muted)}
+.evn{font-weight:600;font-size:16px}
+.evf{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:flex-end}
+.evf input[type=number]{width:110px}
+
+/* tasks */
+.tasks{display:grid;gap:8px}
+.task{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+.tdue{font-size:13px;text-align:center;background:var(--surface-2);border-radius:8px;padding:6px 10px;line-height:1.2;min-width:64px;color:var(--muted)}
+.tdue b{display:block;font-size:18px;font-weight:600;color:var(--fg)}
+.task .tt{font-weight:500}
+.task .tm{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.addt{background:var(--surface);border:1px dashed var(--line-strong);border-radius:12px;padding:16px;display:grid;gap:12px}
+.addg{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:12px}
+.err{font-size:13px;color:var(--danger-text);margin:0;display:flex;gap:6px;align-items:center}
+.empty{font-size:15px;color:var(--muted);text-align:center;padding:20px 8px}
+
+.savebar{position:sticky;bottom:0;z-index:5;margin-top:4px;background:var(--page);padding-block:12px calc(12px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.savebar .st{font-size:15px;color:var(--muted);flex:1;min-width:200px;display:flex;align-items:center;gap:8px}
+.savebar .st.dirty{color:var(--navy);font-weight:600}
+.savebar .st.ok{color:var(--success-text);font-weight:500}
+
+/* history */
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.kpi{position:relative;background:var(--slate-tint);border:1px solid var(--line);border-top:4px solid var(--slate);border-radius:12px;padding:14px 16px;display:grid;gap:4px;min-width:0}
+.kpi .ic{position:absolute;top:12px;right:12px;color:var(--slate)}
+.kpi .k{font-size:13px;color:var(--muted);padding-right:24px}
+.kpi .v{font-size:32px;font-weight:600;line-height:1.15}
+.kpi .v.sm{font-size:18px;line-height:1.3;margin-top:4px}
+.kpi .d{font-size:13px;color:var(--muted)}
+.heat{display:grid}
+.hr{display:grid;grid-template-columns:minmax(160px,240px) minmax(0,1fr) 64px;gap:12px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}
+.hr:first-child{border-top:0}
+.hr .hl{font-size:15px;font-weight:500}
+.sq{display:flex;gap:6px;overflow-x:auto;padding:3px}
+.sq button{width:32px;height:32px;padding:0;border-radius:6px;border:2px solid transparent;flex:none}
+.sq button svg.i{width:16px;height:16px;vertical-align:0}
+.sq button.met{background:var(--success);color:#FFFFFF}
+.sq button.miss{background:var(--warning);color:#1B2433}
+.sq button.prog{background:var(--surface);color:var(--muted);border:2px dashed var(--line-strong)}
+.sq button[aria-pressed="true"]{outline:3px solid var(--navy);outline-offset:1px}
+.hr .rt{text-align:right;font-size:14px;font-weight:500}
+.axis{display:grid;grid-template-columns:minmax(160px,240px) minmax(0,1fr) 64px;gap:12px;font-size:13px;color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--muted);align-items:center}
+.legend span{display:inline-flex;gap:6px;align-items:center}
+.legend i{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:4px}
+
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th{font-size:13px;font-weight:600;color:var(--muted);text-align:left;padding:10px 12px;background:var(--surface-2);border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap;vertical-align:middle}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right}
+tr.rep td{color:var(--muted)}tr.rep .tg{text-decoration:line-through}
+tr.hl td{background:var(--navy-soft)}
+
+/* change log */
+.tl{display:grid}
+.tli{display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;position:relative;padding-bottom:18px}
+.tli:before{content:"";position:absolute;left:15px;top:32px;bottom:0;width:2px;background:var(--line)}
+.tli:last-child:before{display:none}
+.dot{width:32px;height:32px;border-radius:8px;background:var(--neutral-tint);color:var(--neutral-text);display:grid;place-items:center;font-size:13px;font-weight:600}
+.tli .w{font-size:13px;color:var(--muted)}
+.tli .x b{font-weight:600}
+
+@media (max-width:768px){.kpis{grid-template-columns:minmax(0,1fr)}.addg{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:600px){.pbar{grid-template-columns:auto minmax(0,1fr)}.pnav{grid-column:1/-1}.hr,.axis{grid-template-columns:minmax(0,1fr) 56px}.hr .sq{grid-column:1/-1;grid-row:2}.axis>span:first-child{display:none}}
+:root{--sand-tint:#F8F4EC;--sand:#8A6D3B;--teal-tint:#EEF8F6;--teal:#0F766E}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--sand-tint:#241F16;--sand:#CDB27C;--teal-tint:#122523;--teal:#5CC2B6}}
+:root[data-theme="dark"]{--sand-tint:#241F16;--sand:#CDB27C;--teal-tint:#122523;--teal:#5CC2B6}
+.gc{background:var(--tint,var(--surface));border-top:4px solid var(--acc,var(--line))}
+.gc.teal{--tint:var(--teal-tint);--acc:var(--teal)}.gc.slate{--tint:var(--slate-tint);--acc:var(--slate)}.gc.sand{--tint:var(--sand-tint);--acc:var(--sand)}
+.gc-h{display:flex;gap:10px;align-items:flex-start}
+.gc-ic{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:var(--surface);color:var(--acc);flex:none}.gc-ic svg{width:18px;height:18px}
+.gc-top{flex:1;min-width:0;flex-wrap:wrap}
+.gc .gbar{background:var(--surface)}
+.vis{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:12px;border-top:1px solid color-mix(in srgb,var(--acc,var(--line)) 25%,var(--line));font-size:14px;cursor:pointer}
+.vis .vt{display:grid;gap:1px}.vis .vt b{font-weight:500}.vis .vt small{font-size:13px;color:var(--muted)}
+.sw{position:relative;width:40px;height:24px;flex:none}
+.sw input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.sw span{position:absolute;inset:0;pointer-events:none;border-radius:12px;background:var(--line-strong);transition:background .15s}
+.sw span:after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25);transition:transform .15s}
+.sw input:checked+span{background:var(--navy-fill)}.sw input:checked+span:after{transform:translateX(16px)}
+.sw input:focus-visible+span{outline:2px solid var(--navy);outline-offset:2px}
+.gc.off{--tint:var(--surface);--acc:var(--line-strong)}
+.gc.off .gc-l,.gc.off .step,.gc.off .gbar,.gc.off .gc-foot{opacity:.6}
+.vsum{font-size:14px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.vsum b{color:var(--fg);font-weight:600}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1 id="title">Recruiter goals</h1>
+      <div class="hmeta"><span class="chip"><svg class="i" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>Managers only</span><span>Signed in as Jake</span><span id="whoMeta"></span></div>
+    </div>
+    <div class="controls">
+      <label class="f">Set goals for<span class="seg" role="group" aria-label="Set goals for" id="scope"><button type="button" data-s="rec" aria-pressed="true">Recruiter</button><button type="button" data-s="reg" aria-pressed="false">Region</button></span></label>
+      <label class="f" for="who"><span id="whoL">Recruiter</span><select id="who"></select></label>
+    </div>
+  </header>
+
+  <div class="notice" role="note"><svg class="i" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 2 1.5 13.5h13Z" stroke-linejoin="round"/><path d="M8 6.5v3.2M8 11.6v.1" stroke-linecap="round"/></svg><span>Sample data for layout review. Goals, history and the change log are illustrative; changes here aren't saved to the system.</span></div>
+
+  <div class="tabs" role="tablist" aria-label="Goals sections">
+    <button type="button" class="tab" role="tab" id="t-set" aria-controls="p-set" aria-selected="true">Set goals</button>
+    <button type="button" class="tab" role="tab" id="t-hist" aria-controls="p-hist" aria-selected="false" tabindex="-1">Goal history</button>
+    <button type="button" class="tab" role="tab" id="t-log" aria-controls="p-log" aria-selected="false" tabindex="-1">Change log <span class="chip" id="logCt">0</span></button>
+  </div>
+
+  <!-- SET GOALS -->
+  <div role="tabpanel" id="p-set" aria-labelledby="t-set" class="sec" style="gap:24px">
+    <div class="sec">
+      <div class="sech">
+        <label class="f">Goal period<span class="seg" role="group" aria-label="Goal period" id="per"><button type="button" data-p="day" aria-pressed="false">Daily</button><button type="button" data-p="week" aria-pressed="true">Weekly</button><button type="button" data-p="month" aria-pressed="false">Monthly</button><button type="button" data-p="quarter" aria-pressed="false">Quarterly</button></span></label>
+      </div>
+      <div class="pbar" aria-live="polite">
+        <div class="pcal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></div>
+        <div><div class="pk" id="pk">Weekly goal period</div><div class="pv" id="pv"></div><div class="sup" id="ps"></div></div>
+        <div class="pnav"><button type="button" class="icon" id="prev" aria-label="Previous period"><svg class="i" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 3 5 8l5 5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" class="icon" id="next" aria-label="Next period"><svg class="i" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 3 5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sech"><div><h2>Standing goals</h2><div class="sup" id="sgSub"></div></div><div class="vsum" id="vsum"></div></div>
+      <div class="callout" id="roll"></div>
+      <div class="gcs" id="goals"></div>
+      <label class="chk" id="cascL"><input type="checkbox" id="cascade" checked> <span id="cascT">Also fill this period's daily, monthly and quarterly goals from these</span></label>
+    </div>
+
+    <div class="sec" id="evSec">
+      <div class="sech"><div><h2>Event goals</h2><div class="sup" id="evSub"></div></div></div>
+      <div class="evs" id="events"></div>
+    </div>
+
+    <div class="sec" id="tSec">
+      <div class="sech"><div><h2>Assigned tasks</h2><div class="sup">Displayed on the recruiter's home page and 1-on-1</div></div></div>
+      <div class="tasks" id="tasks"></div>
+      <form class="addt" id="addForm" novalidate>
+        <h3>Assign a task</h3>
+        <div class="addg">
+          <label class="f" for="tTxt">Task<input type="text" id="tTxt" placeholder="Schedule donations for 2 Critical dogs"></label>
+          <label class="f" for="tDue">Due date<input type="date" id="tDue"></label>
+          <label class="f" for="tLink">Link to<select id="tLink"></select></label>
+          <label class="f" for="tGoal">Counts toward<select id="tGoal"></select></label>
+        </div>
+        <p class="err" id="tErr" hidden><svg class="i" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5.2 1.5h5.6l3.7 3.7v5.6l-3.7 3.7H5.2l-3.7-3.7V5.2Z" stroke-linejoin="round"/><path d="M8 4.8v3.6M8 10.9v.1" stroke-linecap="round"/></svg>Enter a task description.</p>
+        <div><button type="submit"><svg class="i" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke-linecap="round"/></svg>Assign task</button></div>
+      </form>
+    </div>
+
+    <div class="savebar">
+      <span class="st" id="msg" role="status">No unsaved changes</span>
+      <button type="button" id="copy">Copy prior period</button>
+      <button type="button" class="primary" id="save">Save goals</button>
+    </div>
+  </div>
+
+  <!-- HISTORY -->
+  <div role="tabpanel" id="p-hist" aria-labelledby="t-hist" class="sec" style="gap:20px;padding-bottom:40px" hidden>
+    <div class="sech">
+      <div><h2>Goal history</h2><div class="sup" id="histFor"></div></div>
+      <label class="f">Goal period<span class="seg" role="group" aria-label="History goal period" id="hper"><button type="button" data-p="day" aria-pressed="false">Daily</button><button type="button" data-p="week" aria-pressed="true">Weekly</button><button type="button" data-p="month" aria-pressed="false">Monthly</button><button type="button" data-p="quarter" aria-pressed="false">Quarterly</button></span></label>
+    </div>
+    <div class="kpis" id="sum"></div>
+    <div class="panel" style="display:grid;gap:12px">
+      <div class="sech"><h3>Goal attainment by period</h3>
+        <div class="legend"><span><i style="background:var(--success);color:#fff" id="lgM"></i>Met</span><span><i style="background:var(--warning);color:#1B2433" id="lgX"></i>Missed</span><span><i style="border:2px dashed var(--line-strong)"></i>In progress</span></div></div>
+      <div class="heat" id="heat"></div>
+      <div class="axis" id="axis"></div>
+      <div class="sup">Select a period to view its goal entries.</div>
+    </div>
+    <div class="panel" style="display:grid;gap:12px">
+      <div class="sech"><h3 id="entT">Goal entries</h3><label class="f" for="hm">Metric<select id="hm"></select></label></div>
+      <div class="tbl"><table><thead><tr><th>Period</th><th class="r">Goal</th><th>Set by</th><th>Set on</th><th>Status</th><th class="r">Actual</th><th>Result</th></tr></thead><tbody id="heB"></tbody></table></div>
+    </div>
+  </div>
+
+  <!-- CHANGE LOG -->
+  <div role="tabpanel" id="p-log" aria-labelledby="t-log" class="sec" style="padding-bottom:40px" hidden>
+    <div><h2>Change log</h2><div class="sup" id="logFor"></div></div>
+    <div class="panel"><div class="tl" id="log"></div></div>
+  </div>
+</div>
+
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+/* icons: single color, currentColor (Carbon-style outline) */
+const IC={
+  ok:'<svg class="i" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="8" cy="8" r="6.2"/><path d="m5.3 8.2 1.9 1.9 3.6-3.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  warn:'<svg class="i" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 2 1.5 13.5h13Z" stroke-linejoin="round"/><path d="M8 6.5v3.2M8 11.6v.1" stroke-linecap="round"/></svg>',
+  neu:'<svg class="i" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3.2" fill="currentColor"/></svg>',
+  check:'<svg class="i" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m3.5 8.4 3 3 6-6.4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  bang:'<svg class="i" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M8 3.5v5.5M8 12.3v.2" stroke-linecap="round"/></svg>',
+  chart:'<svg class="i" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 13.5h12M4 11V7M8 11V4M12 11V8.5" stroke-linecap="round"/></svg>',
+  cal:'<svg class="i" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2.5" y="3.5" width="11" height="10" rx="1.5"/><path d="M2.5 6.5h11M5.5 2v3M10.5 2v3"/></svg>',
+  link:'<svg class="i" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6.5 9.5 9.5 6.5M7 4.5l1-1a2.8 2.8 0 0 1 4 4l-1 1M9 11.5l-1 1a2.8 2.8 0 0 1-4-4l1-1" stroke-linecap="round"/></svg>',
+  target:'<svg class="i" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="3"/><circle cx="8" cy="8" r=".6" fill="currentColor"/></svg>'
+};
+const MI={
+  reg:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="6.5" cy="5.5" r="2.5"/><path d="M2 13.5c.5-2.5 2.3-4 4.5-4s4 1.5 4.5 4M12.5 5v4M10.5 7h4" stroke-linecap="round"/></svg>',
+  show:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2.5" y="3.5" width="11" height="10" rx="1.5"/><path d="M2.5 6.5h11M5.5 2v3M10.5 2v3M6 10l1.5 1.5L10.5 8.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  lead:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3.5 2.5h2.2l1.1 2.8-1.4 1a7.5 7.5 0 0 0 4.3 4.3l1-1.4 2.8 1.1v2.2a1 1 0 0 1-1 1A10.5 10.5 0 0 1 2.5 3.5a1 1 0 0 1 1-1Z" stroke-linejoin="round"/></svg>',
+  part:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 7 8 2.5 14 7M3.5 6v7.5h9V6M6.5 13.5V10h3v3.5" stroke-linejoin="round"/></svg>',
+  evt:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3.5 14V2.5M3.5 3h8l-1.8 2.8 1.8 2.7h-8" stroke-linejoin="round" stroke-linecap="round"/></svg>',
+  risk:'<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><ellipse cx="4" cy="6" rx="1.5" ry="2"/><ellipse cx="12" cy="6" rx="1.5" ry="2"/><ellipse cx="6.3" cy="3.4" rx="1.4" ry="1.9"/><ellipse cx="9.7" cy="3.4" rx="1.4" ry="1.9"/><path d="M8 7.5c-2 0-3.8 2.3-3.8 4 0 1.3 1.1 1.8 2.1 1.6.6-.1 1.1-.4 1.7-.4s1.1.3 1.7.4c1 .2 2.1-.3 2.1-1.6 0-1.7-1.8-4-3.8-4Z"/></svg>',
+  ontime:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 4.5V8l2.5 1.5" stroke-linecap="round"/></svg>'
+};
+const MTONE={reg:'teal',show:'teal',lead:'slate',part:'slate',evt:'slate',risk:'sand',ontime:'sand'};
+/* which goals show on each recruiter's dashboard (set on the Recruiter goals page) */
+const VIS_DEFAULT={kim:{risk:false},riley:{},hannah:{evt:false},donna:{},tracy:{}};
+const VKEY='navbb-goals:visibility';
+function loadVis(){let v=null;try{v=JSON.parse(localStorage.getItem(VKEY))}catch(e){}return v||JSON.parse(JSON.stringify(VIS_DEFAULT))}
+function saveVis(v){try{localStorage.setItem(VKEY,JSON.stringify(v))}catch(e){}}
+const shown=(V,id,k)=>!(V[id]&&V[id][k]===false);
+const badge=(tone,label)=>`<span class="badge b-${tone}">${tone==='success'?IC.ok:tone==='warning'?IC.warn:IC.neu}${label}</span>`;
+const loc=c=>`<span class="loc ${c}">${c}</span>`;
+
+/* office order per v1.1 reference table: DMV, PGH, RVA, COL */
+const REGS=['DMV','PGH','RVA','COL'];
+const RECS=[['kim','Kim','DMV'],['riley','Riley','DMV'],['hannah','Hannah','PGH'],['donna','Donna','RVA'],['tracy','Tracy','COL']];
+const M=[
+ {k:'reg',l:'Registrations',t:'n'},{k:'show',l:'First-time donor show rate',t:'%'},{k:'lead',l:'Lead follow-ups completed',t:'n'},
+ {k:'part',l:'Partner contacts',t:'n'},{k:'evt',l:'Recruitment events held',t:'n'},{k:'risk',l:'Dogs moved out of Action or Critical',t:'n'},{k:'ontime',l:'Tasks completed on time',t:'%'}];
+const BASE={kim:[6,85,15,8,1,4,90],riley:[5,85,12,6,1,3,90],donna:[8,85,18,9,2,4,90],hannah:[5,85,12,6,1,4,90],tracy:[10,85,20,10,2,3,90]};
+const LAST={kim:[7,80,12,6,1,3,83],riley:[6,75,10,5,1,2,80],donna:[9,67,16,8,2,3,88],hannah:[5,60,11,6,1,4,85],tracy:[9,80,18,9,1,2,92]};
+const F={day:1/5,week:1,month:4.33,quarter:13};
+const PL={day:'Daily',week:'Weekly',month:'Monthly',quarter:'Quarterly'};
+const PER1={day:'day',week:'week',month:'month',quarter:'quarter'};
+const scale=(v,t,p)=>t==='%'?v:Math.max(0,Math.round(v*F[p]));
+const unit=m=>m.t==='%'?'%':'';
+
+/* periods you can set: the current one and upcoming ones */
+const UP={
+  week:[['Oct 19–25, 2026','This week','Mon Oct 19 – Sun Oct 25 · Mon–Sun ET','Oct 19–25'],['Oct 26 – Nov 1, 2026','Next week','Mon Oct 26 – Sun Nov 1 · Mon–Sun ET','Oct 26 – Nov 1'],['Nov 2–8, 2026','In 2 weeks','Mon Nov 2 – Sun Nov 8 · Mon–Sun ET','Nov 2–8'],['Nov 9–15, 2026','In 3 weeks','Mon Nov 9 – Sun Nov 15 · Mon–Sun ET','Nov 9–15']],
+  day:[['Tue, Oct 20, 2026','Today','Midnight to midnight ET','Oct 20'],['Wed, Oct 21, 2026','Tomorrow','Midnight to midnight ET','Oct 21'],['Thu, Oct 22, 2026','Thursday','Midnight to midnight ET','Oct 22'],['Fri, Oct 23, 2026','Friday','Midnight to midnight ET','Oct 23']],
+  month:[['October 2026','This month','Oct 1 – Oct 31','October'],['November 2026','Next month','Nov 1 – Nov 30','November'],['December 2026','In 2 months','Dec 1 – Dec 31','December']],
+  quarter:[['Q4 2026','This quarter','Oct 1 – Dec 31, 2026','Q4 2026'],['Q1 2027','Next quarter','Jan 1 – Mar 31, 2027','Q1 2027']]
+};
+const LAST_LBL={week:'Oct 12–18',day:'Oct 19',month:'September',quarter:'Q3'};
+
+const EVENTS={
+  kim:[['Recruitment event','Bull Run Dog Lodge','Thu 10/22',[['Registrations',4],['Leads',10]]],['Donation day','Old Town Tails','Wed 10/21',[['Donors scheduled',8],['Show rate %',90]],'Reminders sent 48 hrs ahead'],['Partner visit','Haymarket Hounds','Tue 10/20',null,null,'Confirm first donation day']],
+  riley:[['Recruitment event','Manassas Fall Pet Day','Sat 10/24',[['Registrations',5],['Leads',15]]],['Partner visit','Prince William Vet Group','Wed 10/21',null,null,'Drop off donor flyers']],
+  donna:[['Recruitment event','Midlothian Pup Stop','Thu 10/22',[['Registrations',5],['Leads',12]]],['Donation day','Barkwell Daycare','Wed 10/21',[['Donors scheduled',9],['Show rate %',90]],'Reminders sent 48 hrs ahead'],['Partner visit','James River Pet Resort','Tue 10/20',null,null,'Confirm next donation day']],
+  hannah:[['Donation day','Squirrel Hill Dog Den','Wed 10/21',[['Donors scheduled',7],['Show rate %',85]],'Reminders sent 48 hrs ahead'],['Recruitment event','Lawrenceville Dog Day','Sat 10/24',[['Registrations',4],['Leads',12]]]],
+  tracy:[['Screening event','Columbus office','Fri 10/23',[['Dogs screened',6]]],['Recruitment event','Clintonville Farmers Market','Sat 10/24',[['Registrations',6],['Leads',15]]],['Partner visit','Grandview Paws','Tue 10/20',null,null,'Confirm first donation day']]
+};
+const LINKS={kim:['Dog · Cooper','Dog · Nala','Partner · Old Town Tails','Event · Recruitment event 10/22'],riley:['Dog · Olive','Partner · Prince William Vet Group'],donna:['Dog · Moose','Partner · Barkwell Daycare','Event · Recruitment event 10/22'],hannah:['Dog · Gus','Partner · Squirrel Hill Dog Den'],tracy:['Dog · Clover','Partner · Easton Dog Lodge','Event · Screening event 10/23']};
+const TASKS={kim:[{t:'Call 3 no-shows from last week to reschedule',d:'2026-10-21',g:'First-time donor show rate'},{t:'Schedule donation: Cooper (Critical, 6 days left)',d:'2026-10-19',l:'Dog · Cooper',g:'Dogs moved out of Action or Critical'}],riley:[],donna:[{t:'Reschedule Moose before retire date',d:'2026-10-22',l:'Dog · Moose',g:'Dogs moved out of Action or Critical'}],hannah:[],tracy:[{t:'Lock first donation day with Easton Dog Lodge',d:'2026-10-23',l:'Partner · Easton Dog Lodge',g:'Partner contacts'}]};
+
+/* goals: G[who][periodType][periodIndex][metric] */
+const G={};
+const mk=(fn)=>{const o={};Object.keys(F).forEach(p=>{o[p]=UP[p].map(()=>{const r={};M.forEach((m,i)=>r[m.k]=fn(m,i,p));return r})});return o};
+RECS.forEach(([id])=>G['rec:'+id]=mk((m,i,p)=>scale(BASE[id][i],m.t,p)));
+REGS.forEach(r=>{const rs=RECS.filter(x=>x[2]===r);G['reg:'+r]=mk((m,i,p)=>m.t==='%'?(m.k==='ontime'?90:85):scale(r==='DMV'&&m.k==='reg'?12:rs.reduce((a,x)=>a+BASE[x[0]][i],0),m.t,p))});
+const LOG=[
+ {at:'Oct 19, 9:12 AM',by:'Jake',who:'rec:kim',txt:'Weekly registrations for Oct 19–25: 5 → 6'},
+ {at:'Oct 19, 9:12 AM',by:'Jake',who:'rec:kim',txt:'Assigned task “Call 3 no-shows from last week to reschedule”'},
+ {at:'Oct 12, 8:40 AM',by:'Casey',who:'reg:DMV',txt:'Quarterly registrations for Q4 2026 set to 156'},
+ {at:'Oct 5, 10:03 AM',by:'Jake',who:'rec:donna',txt:'Weekly first-time donor show rate for Oct 5–11: 80% → 85%'}];
+
+let S='rec',W='rec:kim',P='week',PI=0,HP='week',TAB='set',SNAP='{}',HSEL=null;
+const recId=()=>W.split(':')[1];
+const nameOf=w=>{const [s,id]=w.split(':');return s==='rec'?RECS.find(x=>x[0]===id)[1]:id};
+const regOf=w=>{const [s,id]=w.split(':');return s==='rec'?RECS.find(x=>x[0]===id)[2]:id};
+const stamp=()=>{const d=new Date();return d.toLocaleDateString('en-US',{month:'short',day:'numeric'})+', '+d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})};
+const dparts=v=>{if(!v)return['—','No date'];const d=new Date(v+'T12:00');return[['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getDay()],(d.getMonth()+1)+'/'+d.getDate()]};
+const curG=()=>G[W][P][PI];
+
+/* ---------- goal history (sample) ---------- */
+function rng(s){return function(){s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const addD=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x};
+const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const fdd=d=>MON[d.getMonth()]+' '+d.getDate();
+const fwkS=s=>{const e=addD(s,6);return s.getMonth()===e.getMonth()?`${fdd(s)}–${e.getDate()}`:`${fdd(s)} – ${fdd(e)}`};
+const PERIODS={
+  week:[...Array(10)].map((_,i)=>{const st=addD(new Date(2026,9,19),-7*(9-i));return{st,label:fwkS(st),short:fdd(st),cur:i===9}}),
+  day:[12,13,14,15,16,19,20].map(d=>{const st=new Date(2026,9,d);return{st,label:`${DOW[st.getDay()]} ${fdd(st)}`,short:fdd(st),cur:d===20}}),
+  month:[7,8,9].map(m=>({st:new Date(2026,m,1),label:MON[m]+' 2026',short:MON[m],cur:m===9})),
+  quarter:[{st:new Date(2026,6,1),label:'Q3 2026',short:'Q3',cur:false},{st:new Date(2026,9,1),label:'Q4 2026',short:'Q4',cur:true}]
+};
+const FRAC={week:0.3,day:0.5,month:0.65,quarter:0.22};
+const SETTERS=['Jake','Jake','Jake','Michael','Casey'];
+const atStr=(d,h,m)=>`${fdd(d)}, ${((h+11)%12)+1}:${String(m).padStart(2,'0')} ${h<12?'AM':'PM'}`;
+const HC={};
+function hist(who,per){
+  const ck=who+'|'+per;if(HC[ck])return HC[ck];
+  const [sc,id]=who.split(':'),PS=PERIODS[per];let out;
+  if(sc==='rec'){
+    const r=rng((id.charCodeAt(0)*97+id.length*13+per.length*7)|0),bi=BASE[id];
+    out=PS.map((pp,j)=>{const rows={};
+      M.forEach((m,i)=>{
+        const tg=pp.cur?G[who][per][0][m.k]:Math.max(0,scale(bi[i]-(m.k==='reg'&&j<PS.length/2?1:0),m.t,per));
+        let ac=m.t==='%'?Math.max(40,Math.min(100,tg+Math.round((r()-0.6)*22))):Math.max(0,Math.round(tg*(0.7+0.5*r())));
+        if(pp.cur&&m.t!=='%')ac=Math.round(ac*FRAC[per]);
+        const setDay=addD(pp.st,-1),by=SETTERS[Math.floor(r()*SETTERS.length)],ent=[];
+        if(!pp.cur&&r()<0.18){ent.push({target:m.t==='%'?tg+5:tg+1,by,at:atStr(setDay,16,Math.floor(r()*50)+5)});ent.push({target:tg,by:'Jake',at:atStr(addD(pp.st,1),9,Math.floor(r()*50)+5)})}
+        else if(pp.cur&&id==='kim'&&per==='week'&&m.k==='reg'){ent.push({target:5,by:'Jake',at:'Oct 12, 4:20 PM'});ent.push({target:tg,by:'Jake',at:'Oct 19, 9:12 AM'})}
+        else ent.push({target:tg,by,at:atStr(setDay,16,Math.floor(r()*50)+5)});
+        rows[m.k]={target:tg,actual:ac,entries:ent};
+      });return{...pp,rows}});
+  }else{
+    const rs=RECS.filter(x=>x[2]===id).map(x=>hist('rec:'+x[0],per));
+    out=PS.map((pp,j)=>{const rows={};
+      M.forEach(m=>{const vals=rs.map(h=>h[j].rows[m.k]);
+        const tg=pp.cur?G[who][per][0][m.k]:(m.t==='%'?(m.k==='ontime'?90:85):vals.reduce((a,v)=>a+v.target,0)+(id==='DMV'&&m.k==='reg'?scale(1,'n',per):0));
+        const ac=m.t==='%'?Math.round(vals.reduce((a,v)=>a+v.actual,0)/vals.length):vals.reduce((a,v)=>a+v.actual,0);
+        rows[m.k]={target:tg,actual:ac,entries:[{target:tg,by:j%3?'Casey':'Michael',at:atStr(addD(pp.st,-3),11,15)}]};
+      });return{...pp,rows}});
+  }
+  HC[ck]=out;return out;
+}
+
+/* ---------- header + tabs ---------- */
+function fillWho(){
+  $('whoL').textContent=S==='rec'?'Recruiter':'Region';
+  $('who').innerHTML=(S==='rec'?RECS.map(([id,n,r])=>`<option value="rec:${id}">${n} (${r})</option>`):REGS.map(r=>`<option value="reg:${r}">${r}</option>`)).join('');
+  $('who').value=W;
+}
+function drawHeader(){
+  const n=nameOf(W),r=regOf(W);
+  $('title').textContent=S==='rec'?`${n}'s goals`:`${n} region goals`;
+  $('whoMeta').innerHTML=S==='rec'?`Recruiter ${loc(r)}`:`${loc(r)} ${RECS.filter(x=>x[2]===r).map(x=>x[1]).join(', ')}`;
+}
+function setTab(t){TAB=t;['set','hist','log'].forEach(x=>{const on=x===t;$('t-'+x).setAttribute('aria-selected',on);$('t-'+x).tabIndex=on?0:-1;$('p-'+x).hidden=!on});if(t==='hist')drawHist();if(t==='log')drawLog()}
+document.querySelector('.tabs').addEventListener('click',e=>{const b=e.target.closest('.tab');if(b)setTab(b.id.slice(2))});
+document.querySelector('.tabs').addEventListener('keydown',e=>{if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;const o=['set','hist','log'],i=o.indexOf(TAB),n=o[(i+(e.key==='ArrowRight'?1:2))%3];setTab(n);$('t-'+n).focus()});
+
+/* ---------- period bar ---------- */
+function drawPeriod(){
+  const [lbl,rel,range]=UP[P][PI];
+  $('pk').textContent=`${PL[P]} goal period`;
+  $('pv').innerHTML=`${esc(lbl)} ${badge(PI===0?'neutral':'neutral',rel)}`;
+  $('ps').textContent=range;
+  $('prev').hidden=PI===0;$('next').hidden=PI===UP[P].length-1;
+  const sh=UP[P][PI][3];
+  $('sgSub').textContent=`Targets for ${sh} (per ${PER1[P]})`;
+  $('save').textContent=`Save goals for ${sh}`;
+  $('cascL').hidden=PI!==0;
+  $('cascT').textContent=`Apply proportionally to current ${['day','week','month','quarter'].filter(x=>x!==P).map(x=>PL[x].toLowerCase()).join(', ').replace(/, ([^,]*)$/,' and $1')} goals`;
+  if(P==='week'&&PI===0)$('evSub').textContent='Events on the calendar for Oct 19–25 · results count toward this week\'s goals';
+  else if(P==='week')$('evSub').textContent=`Events for ${sh}`;
+  else $('evSub').textContent='Event goals are set weekly. Select Weekly to edit.';
+}
+$('prev').addEventListener('click',()=>{if(PI>0){PI--;drawSet(true)}});
+$('next').addEventListener('click',()=>{if(PI<UP[P].length-1){PI++;drawSet(true)}});
+
+/* ---------- set goals ---------- */
+function dirty(){return JSON.stringify(curG())!==SNAP}
+function status(){const st=$('msg');if(dirty()){st.innerHTML=`${IC.neu} Unsaved changes · ${esc(UP[P][PI][3])}`;st.className='st dirty'}else if(!st.classList.contains('ok')){st.textContent='No unsaved changes';st.className='st'}}
+function drawGoals(fresh){
+  const g=curG();if(fresh)SNAP=JSON.stringify(g);const snap=JSON.parse(SNAP);
+  const isRec=S==='rec',id=recId(),rs=isRec?[]:RECS.filter(x=>x[2]===id);
+  $('goals').innerHTML=M.map((m,i)=>{
+    const v=g[m.k];let ref,refL,ok;
+    if(isRec){ref=scale(LAST[id][i],m.t,P);refL=`Prior ${PER1[P]} (${LAST_LBL[P]})`;ok=ref>=v}
+    else{ref=m.t==='%'?Math.round(rs.reduce((a,x)=>a+G['rec:'+x[0]][P][PI][m.k],0)/rs.length):rs.reduce((a,x)=>a+G['rec:'+x[0]][P][PI][m.k],0);refL=m.t==='%'?'Recruiter goals average':'Recruiter goals total';ok=ref>=v}
+    const mx=Math.max(v,ref,1)*1.2,fw=Math.min(100,ref/mx*100),gp=Math.min(100,v/mx*100);
+    const tag=isRec?(ok?badge('success','Met prior '+PER1[P]):badge('neutral','Below goal prior '+PER1[P])):(ok?badge('success','Covered'):badge('warning',`${v-ref}${unit(m)} short`));
+    const on=isRec?shown(VIS,id,m.k):true,nOn=isRec?0:rs.filter(x=>shown(VIS,x[0],m.k)).length;
+    const visRow=isRec?`<label class="vis"><span class="vt"><b>Show on ${esc(nameOf(W))}'s dashboard</b><small>${on?'Displayed on the 1-on-1 and home page':'Hidden. Still tracked in goal history'}</small></span><span class="sw"><input type="checkbox" role="switch" data-vis="${m.k}" ${on?'checked':''} aria-label="Show ${m.l} on ${esc(nameOf(W))}'s dashboard"><span></span></span></label>`
+      :`<div class="vis" style="cursor:default"><span class="vt"><b>Shown on ${nOn} of ${rs.length} recruiter dashboards</b><small>${nOn<rs.length?'Hidden for '+rs.filter(x=>!shown(VIS,x[0],m.k)).map(x=>x[1]).join(' and '):'Change this per recruiter'}</small></span></div>`;
+    return `<div class="gc ${on?MTONE[m.k]:'off'}${snap[m.k]!==v?' changed':''}">
+      <div class="gc-h"><span class="gc-ic">${MI[m.k]}</span><div class="gc-top"><label class="gc-l" for="g-${m.k}">${m.l}<span class="gc-per">per ${PER1[P]}</span></label>${on?tag:badge('neutral','Hidden from dashboard')}</div></div>
+      <div class="step"><button type="button" class="icon" data-step="-1" data-k="${m.k}" aria-label="Decrease ${m.l}"><svg class="i" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10" stroke-linecap="round"/></svg></button><input type="number" id="g-${m.k}" min="0" step="1" data-k="${m.k}" value="${v}"><span class="u">${unit(m)}</span><button type="button" class="icon" data-step="1" data-k="${m.k}" aria-label="Increase ${m.l}"><svg class="i" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke-linecap="round"/></svg></button></div>
+      <div class="gbar" role="img" aria-label="${refL}: ${ref}${unit(m)} against a goal of ${v}${unit(m)}"><i style="width:${fw}%;background:var(--${ok?'success':'warning'})"></i><b style="left:calc(${gp}% - 1.5px)"></b></div>
+      <div class="gc-foot"><span>${refL} <strong>${ref}${unit(m)}</strong></span><span>Goal <strong>${v}${unit(m)}</strong></span></div>
+      ${visRow}
+    </div>`}).join('');
+  if(isRec){const n=M.filter(m=>shown(VIS,id,m.k)).length;$('vsum').innerHTML=`${IC.chart}<span><b>${n} of ${M.length}</b> goals shown on ${esc(nameOf(W))}'s dashboard</span>`}else $('vsum').innerHTML='';
+  if(isRec){const r=RECS.find(x=>x[0]===id)[2],rg=G['reg:'+r][P][PI].reg,sum=RECS.filter(x=>x[2]===r).reduce((a,x)=>a+G['rec:'+x[0]][P][PI].reg,0);
+    $('roll').innerHTML=`${loc(r)}<span>Recruiter registration goals total <strong>${sum}</strong> of the <strong>${rg}</strong> regional goal for ${esc(UP[P][PI][3])}</span>${sum<rg?badge('warning',`${rg-sum} short`):badge('success','Covered')}`;}
+  else $('roll').innerHTML=`${loc(id)}<span>${rs.map(x=>x[1]).join(' and ')} ${rs.length>1?'have':'has'} goals in this region. Each card compares the regional goal with the combined recruiter goals for ${esc(UP[P][PI][3])}.</span>`;
+  status();
+}
+function setGoal(k,v){const m=M.find(x=>x.k===k);v=Math.max(0,Math.min(m.t==='%'?100:9999,Math.round(v||0)));curG()[k]=v;
+  if(PI===0&&$('cascade').checked)Object.keys(F).forEach(p=>{if(p!==P)G[W][p][0][k]=m.t==='%'?v:Math.round(v/F[P]*F[p])});
+  $('msg').classList.remove('ok')}
+$('goals').addEventListener('click',e=>{const b=e.target.closest('[data-step]');if(!b)return;const k=b.dataset.k;setGoal(k,curG()[k]+(+b.dataset.step));drawGoals();$('g-'+k).focus()});
+$('goals').addEventListener('input',e=>{const k=e.target.dataset.k;if(!k)return;setGoal(k,+e.target.value);e.target.closest('.gc').classList.toggle('changed',JSON.parse(SNAP)[k]!==curG()[k]);status()});
+$('goals').addEventListener('change',e=>{
+  if(e.target.dataset.vis){const k=e.target.dataset.vis,id=recId(),m=M.find(x=>x.k===k);VIS[id]=VIS[id]||{};VIS[id][k]=e.target.checked;saveVis(VIS);
+    addLog(`${m.l} ${e.target.checked?'shown on':'hidden from'} ${nameOf(W)}'s dashboard`);if(TAB==='log')drawLog();drawGoals();flash(`${m.l} ${e.target.checked?'shown on':'hidden from'} the dashboard`);return}
+  if(e.target.dataset.k)drawGoals()});
+let VIS=loadVis();
+
+function drawEvents(){
+  if(P!=='week'){$('events').innerHTML='';return}
+  const E=PI===0?(EVENTS[recId()]||[]):[];
+  $('events').innerHTML=E.length?E.map(e=>`<div class="ev"><div class="evh"><div><div class="evt">${esc(e[0])}</div><div class="evn">${esc(e[1])}</div></div><span class="chip">${IC.cal}${e[2]}</span></div>
+    <div class="evf">${(e[3]||[]).map(([l,v])=>`<label class="f">${l}<input type="number" min="0" step="1" value="${v}"></label>`).join('')}${e[5]?`<label class="f" style="flex:1;min-width:220px">Outcome goal<input type="text" value="${esc(e[5])}"></label>`:''}</div>
+    ${e[4]?`<label class="chk"><input type="checkbox" checked> ${e[4]}</label>`:''}</div>`).join(''):`<div class="panel empty">No events scheduled for ${esc(UP.week[PI][3])}.</div>`;
+}
+function drawTasks(){
+  const T=TASKS[recId()];
+  $('tasks').innerHTML=T.length?T.map((x,i)=>{const [dw,dd]=dparts(x.d);return `<div class="task"><div class="tdue">${dw}<b>${dd}</b></div><div><div class="tt">${esc(x.t)}</div><div class="tm">${x.l?`<span class="chip">${IC.link}${esc(x.l)}</span>`:''}${x.g?`<span class="chip">${IC.target}Counts toward ${esc(x.g)}</span>`:''}</div></div><button type="button" class="tertiary" data-rm="${i}" aria-label="Remove task: ${esc(x.t)}">Remove</button></div>`}).join(''):'<div class="panel empty">No assigned tasks.</div>';
+  $('tLink').innerHTML='<option value="">None</option>'+LINKS[recId()].map(l=>`<option>${l}</option>`).join('');
+  $('tGoal').innerHTML='<option value="">None</option>'+M.filter(m=>m.t==='n').map(m=>`<option>${m.l}</option>`).join('');
+}
+$('tasks').addEventListener('click',e=>{const b=e.target.closest('[data-rm]');if(!b)return;const x=TASKS[recId()].splice(+b.dataset.rm,1)[0];addLog(`Removed task “${x.t}”`);drawTasks();flash('Task removed')});
+$('tTxt').addEventListener('input',()=>$('tErr').hidden=true);
+$('addForm').addEventListener('submit',e=>{e.preventDefault();const t=$('tTxt').value.trim();if(!t){$('tErr').hidden=false;$('tTxt').focus();return}
+  TASKS[recId()].push({t,d:$('tDue').value,l:$('tLink').value,g:$('tGoal').value});
+  addLog(`Assigned task “${t}”${$('tDue').value?' due '+dparts($('tDue').value).join(' '):''}`);
+  $('tTxt').value='';drawTasks();flash('Task assigned')});
+function flash(t){const st=$('msg');st.innerHTML=`${IC.ok} ${esc(t)}`;st.className='st ok'}
+function addLog(txt){LOG.unshift({at:stamp(),by:'Jake',who:W,txt});$('logCt').textContent=logFor().length}
+$('copy').addEventListener('click',()=>{if(S!=='rec'){flash('Prior-period actuals are not available for regional goals.');return}const id=recId();M.forEach((m,i)=>curG()[m.k]=scale(LAST[id][i],m.t,P));$('msg').classList.remove('ok');drawGoals()});
+$('save').addEventListener('click',()=>{
+  const before=JSON.parse(SNAP),now=curG(),sh=UP[P][PI][3];let n=0;
+  const cp=PI===0?hist(W,P).find(x=>x.cur):null;
+  M.forEach(m=>{if(before[m.k]!==now[m.k]){if(cp){const row=cp.rows[m.k];row.entries.push({target:now[m.k],by:'Jake',at:stamp()});row.target=now[m.k]}
+    addLog(`${PL[P]} ${m.l.charAt(0).toLowerCase()+m.l.slice(1)} for ${sh}: ${before[m.k]}${unit(m)} → ${now[m.k]}${unit(m)}`);n++}});
+  drawGoals(true);flash(n?`Saved ${n} change${n>1?'s':''} for ${nameOf(W)} · ${sh}`:'No changes to save')});
+
+/* ---------- history ---------- */
+function drawHist(){
+  const H=hist(W,HP),done=H.filter(p=>!p.cur);
+  $('histFor').innerHTML=`${esc(nameOf(W))} · ${PL[HP].toLowerCase()} goals · ${esc(H[0].label)} to ${esc(H.at(-1).label)}`;
+  let met=0,tot=0;const per=M.map(m=>{const c=done.filter(p=>p.rows[m.k].actual>=p.rows[m.k].target).length;met+=c;tot+=done.length;return{m,c,n:done.length}});
+  const best=[...per].sort((a,b)=>b.c-a.c)[0],worst=[...per].sort((a,b)=>a.c-b.c)[0];
+  const last=done.at(-1),lastMet=last?M.filter(m=>last.rows[m.k].actual>=last.rows[m.k].target).length:0;
+  $('sum').innerHTML=`<div class="kpi"><span class="ic">${IC.chart}</span><span class="k">Goals met, completed ${PER1[HP]}s</span><span class="v">${tot?Math.round(met/tot*100):0}%</span><span class="d">${met} of ${tot} · ${esc(done[0]?done[0].label:'')} to ${esc(last?last.label:'')}</span></div>
+    <div class="kpi"><span class="ic">${IC.cal}</span><span class="k">Last completed ${PER1[HP]}</span><span class="v">${lastMet} of ${M.length}</span><span class="d">${last?esc(last.label):'—'}</span></div>
+    <div class="kpi"><span class="ic">${IC.target}</span><span class="k">Lowest attainment</span><span class="v sm">${esc(worst.m.l)}</span><span class="d">Met ${worst.c} of ${worst.n} · highest: ${esc(best.m.l.toLowerCase())} (${best.c} of ${best.n})</span></div>`;
+  $('lgM').innerHTML=IC.check;$('lgX').innerHTML=IC.bang;
+  $('heat').innerHTML=per.map(({m,c,n})=>`<div class="hr"><span class="hl">${m.l}</span><div class="sq">${H.map((p,j)=>{const x=p.rows[m.k],ok=x.actual>=x.target,cl=p.cur?'prog':ok?'met':'miss',sel=HSEL&&HSEL.j===j&&HSEL.k===m.k,st=p.cur?'in progress':ok?'met':'missed';
+      return `<button type="button" class="${cl}" data-hj="${j}" data-hk="${m.k}" aria-pressed="${!!sel}" title="${esc(p.label)}: ${x.actual}${unit(m)} of ${x.target}${unit(m)} goal, ${st}" aria-label="${esc(m.l)}, ${esc(p.label)}: ${x.actual} of ${x.target}, ${st}">${p.cur?'':ok?IC.check:IC.bang}</button>`}).join('')}</div><span class="rt">${c} of ${n}</span></div>`).join('');
+  $('axis').innerHTML=`<span></span><span>Oldest (${esc(H[0].label)}) → newest (${esc(H.at(-1).label)})</span><span style="text-align:right">Met</span>`;
+  if(!$('hm').options.length)$('hm').innerHTML=M.map(m=>`<option value="${m.k}">${m.l}</option>`).join('');
+  if(HSEL)$('hm').value=HSEL.k;
+  const k=$('hm').value,m=M.find(x=>x.k===k);
+  $('entT').textContent=HSEL?`Goal entries: ${m.l}, ${H[HSEL.j].label}`:`Goal entries: ${m.l}`;
+  const rows=[...H].reverse();
+  $('heB').innerHTML=rows.map(pp=>{const j=H.indexOf(pp),x=pp.rows[k],E=x.entries,hl=HSEL&&HSEL.j===j?' hl':'';
+    return [...E].reverse().map((e,ei)=>{const latest=ei===0,ok=x.actual>=x.target,nxt=E[E.length-ei];
+      return `<tr class="${latest?'':'rep'}${hl}"><td>${latest?esc(pp.label):''}</td><td class="r"><span class="tg">${e.target}${unit(m)}</span></td><td>${esc(e.by)}</td><td>${esc(e.at)}</td><td>${latest?badge('neutral','Current')+(E.length>1?` <span class="sup">replaced ${E.length-1} earlier</span>`:''):`<span class="sup">Replaced by ${esc(nxt.by)}, ${esc(nxt.at)}</span>`}</td><td class="r">${latest?x.actual+unit(m):''}</td><td>${latest?(pp.cur?badge('neutral','In progress'):ok?badge('success','Met'):badge('warning',(x.target-x.actual)+unit(m)+' short')):''}</td></tr>`}).join('')}).join('');
+}
+$('heat').addEventListener('click',e=>{const b=e.target.closest('[data-hk]');if(!b)return;HSEL={j:+b.dataset.hj,k:b.dataset.hk};drawHist();const r=$('heB').querySelector('tr.hl');if(r)r.scrollIntoView({block:'nearest',behavior:'smooth'})});
+$('hm').addEventListener('change',()=>{HSEL=null;drawHist()});
+$('hper').addEventListener('click',e=>{const b=e.target.closest('[data-p]');if(!b)return;HP=b.dataset.p;$('hper').querySelectorAll('button').forEach(c=>c.setAttribute('aria-pressed',c===b));HSEL=null;drawHist()});
+
+/* ---------- change log ---------- */
+function logFor(){const reg=S==='reg'?recId():null;return LOG.filter(x=>x.who===W||(reg&&RECS.some(r=>r[2]===reg&&'rec:'+r[0]===x.who)))}
+function drawLog(){
+  $('logFor').textContent=`${nameOf(W)} · newest first`;
+  const L=logFor();$('logCt').textContent=L.length;
+  $('log').innerHTML=L.length?L.map(x=>`<div class="tli"><span class="dot" aria-hidden="true">${esc(x.by[0])}</span><div><div class="w">${esc(x.at)}</div><div class="x"><b>${esc(x.by)}</b> · ${esc(nameOf(x.who))} · ${esc(x.txt)}</div></div></div>`).join(''):'<div class="empty">No changes yet.</div>';
+}
+
+/* ---------- wiring ---------- */
+function drawSet(fresh){drawPeriod();drawGoals(fresh);if(S==='rec'){$('evSec').hidden=false;drawEvents()}}
+function drawAll(){drawHeader();$('evSec').hidden=$('tSec').hidden=S!=='rec';drawSet(true);if(S==='rec')drawTasks();$('logCt').textContent=logFor().length;HSEL=null;if(TAB==='hist')drawHist();if(TAB==='log')drawLog();$('msg').textContent='No unsaved changes';$('msg').className='st'}
+$('scope').addEventListener('click',e=>{const b=e.target.closest('[data-s]');if(!b)return;S=b.dataset.s;$('scope').querySelectorAll('button').forEach(c=>c.setAttribute('aria-pressed',c===b));W=S==='rec'?'rec:kim':'reg:DMV';fillWho();drawAll()});
+$('who').addEventListener('change',()=>{W=$('who').value;drawAll()});
+$('per').addEventListener('click',e=>{const b=e.target.closest('[data-p]');if(!b)return;P=b.dataset.p;PI=0;$('per').querySelectorAll('button').forEach(c=>c.setAttribute('aria-pressed',c===b));drawSet(true)});
+$('tDue').value='2026-10-23';
+fillWho();drawAll();
+})();
+</script>
+
+</body></html>
